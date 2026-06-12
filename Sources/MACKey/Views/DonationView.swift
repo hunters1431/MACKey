@@ -8,9 +8,9 @@ struct DonationView: View {
                 Image(systemName: "cup.and.saucer.fill")
                     .font(.system(size: 28))
                     .foregroundColor(.accentColor)
-                Text("支持 MACKey 开发")
+                Text(L("donate.title"))
                     .font(.headline)
-                Text("If MACKey helps you, consider buying me a coffee ☕")
+                Text(L("donate.subtitle"))
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -26,7 +26,7 @@ struct DonationView: View {
 
             Spacer(minLength: 0)
 
-            Text("感谢你的支持 · Thank you")
+            Text(L("donate.thanks"))
                 .font(.caption2)
                 .foregroundColor(.secondary)
         }
@@ -43,8 +43,8 @@ struct DonationView: View {
 
         if wechat != nil || alipay != nil {
             HStack(spacing: 20) {
-                if let w = wechat { qrTile(image: w, label: "微信") }
-                if let a = alipay { qrTile(image: a, label: "支付宝") }
+                if let w = wechat { qrTile(image: w, label: L("donate.wechat")) }
+                if let a = alipay { qrTile(image: a, label: L("donate.alipay")) }
             }
         } else {
             VStack(spacing: 6) {
@@ -53,7 +53,7 @@ struct DonationView: View {
                     .foregroundColor(.secondary.opacity(0.4))
                     .frame(width: 140, height: 140)
                     .overlay(
-                        Text("放入 wechat_qr.png /\nalipay_qr.png 后显示")
+                        Text(L("donate.qrPlaceholder"))
                             .font(.caption2)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)

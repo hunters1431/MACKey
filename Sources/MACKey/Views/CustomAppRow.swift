@@ -30,7 +30,7 @@ struct CustomAppRow: View {
                     .foregroundColor(.secondary)
             }
             .buttonStyle(.borderless)
-            .help("从列表移除")
+            .help(L("tip.remove"))
         }
         .padding(.vertical, 7)
     }

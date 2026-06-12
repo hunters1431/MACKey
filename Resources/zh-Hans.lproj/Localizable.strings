@@ -1,0 +1,80 @@
+/* App */
+"app.subtitle" = "你的 macOS 快捷键中心";
+"win.settings" = "MACKey — 快捷键设置";
+"win.donate" = "支持 MACKey";
+
+/* Menu bar */
+"menu.settings" = "设置快捷键…";
+"menu.refresh" = "从 Dock 刷新应用列表";
+"menu.launch" = "开机时启动";
+"menu.support" = "☕ 支持作者…";
+"menu.quit" = "退出 MACKey";
+
+/* Top bar buttons */
+"btn.support" = "支持作者";
+"btn.refresh" = "从 Dock 刷新";
+
+/* Column titles */
+"col.system" = "系统快捷键清单";
+"col.custom" = "定向程序快捷键";
+"col.dock" = "按程序坞排序";
+
+/* Column hints */
+"hint.system" = "读自系统设置，仅显示已启用项";
+"hint.custom" = "点「+」添加任意程序，可绑任意组合键";
+"hint.dock" = "前 10 个自动绑定 ⌃ 数字；点快捷键栏可改键";
+
+/* Empty states */
+"empty.system" = "未读取到已启用的系统快捷键";
+"empty.custom" = "点右上「+」添加任意程序\n再录制任意组合键";
+"empty.dock" = "未从 Dock 读取到应用";
+
+/* Tooltips & panel */
+"tip.add" = "添加应用";
+"tip.remove" = "从列表移除";
+"panel.add" = "添加";
+"panel.msg" = "选择要绑定快捷键的程序";
+
+/* Recorder */
+"rec.recording" = "录制中…  (Esc 取消)";
+"rec.empty" = "点击设置";
+"rec.conflict.app" = "⚠ 已被 %@ 使用";
+"rec.conflict.system" = "⚠ 系统快捷键『%@』";
+"rec.conflict.other" = "⚠ 已被其他 App 占用";
+
+/* Donation */
+"donate.title" = "支持 MACKey 开发";
+"donate.subtitle" = "喜欢的话，请我喝杯咖啡 ☕";
+"donate.wechat" = "微信";
+"donate.alipay" = "支付宝";
+"donate.qrPlaceholder" = "放入 wechat_qr.png /\nalipay_qr.png 后显示";
+"donate.thanks" = "感谢你的支持 · Thank you";
+
+/* System shortcut names */
+"sys.input.prev" = "切换到上一个输入法";
+"sys.input.next" = "切换到下一个输入法";
+"sys.spotlight" = "Spotlight 聚焦搜索";
+"sys.spotlight.finder" = "Spotlight 访达搜索窗口";
+"sys.screenshot.file" = "截屏并存为文件";
+"sys.screenshot.clip" = "截屏并拷贝到剪贴板";
+"sys.screenshot.area.file" = "区域截屏并存为文件";
+"sys.screenshot.area.clip" = "区域截屏并拷贝";
+"sys.screenshot.toolbar" = "截屏与录屏工具栏";
+"sys.mission" = "调度中心";
+"sys.appwindows" = "应用程序窗口";
+"sys.showdesktop" = "显示桌面";
+"sys.space.left" = "移到左侧的空间";
+"sys.space.right" = "移到右侧的空间";
+"sys.menubar" = "聚焦菜单栏";
+"sys.dock" = "聚焦 Dock";
+"sys.windowtile" = "聚焦上一窗口分区";
+"sys.desktop1" = "切换到桌面 1";
+"sys.desktop2" = "切换到桌面 2";
+"sys.desktop3" = "切换到桌面 3";
+"sys.launchpad" = "启动台";
+"sys.notification" = "通知中心";
+"sys.dictation" = "听写";
+"sys.dnd" = "勿扰模式";
+"sys.spotlightFocus" = "聚焦";
+"sys.quicknote" = "快速备忘录";
+"sys.unknown" = "系统快捷键 #%d";

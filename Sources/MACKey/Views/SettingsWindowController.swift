@@ -9,7 +9,7 @@ final class SettingsWindowController: NSWindowController {
             backing: .buffered,
             defer: false
         )
-        window.title = "MACKey — 快捷键设置"
+        window.title = L("win.settings")
         window.minSize = NSSize(width: 920, height: 560)
         window.center()
         window.contentView = NSHostingView(rootView: SettingsView())

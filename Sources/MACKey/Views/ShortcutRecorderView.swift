@@ -71,13 +71,13 @@ final class RecorderButton: NSButton {
             title = msg
             contentTintColor = .systemRed
         } else if isRecording {
-            title = "录制中…  (Esc 取消)"
+            title = L("rec.recording")
             contentTintColor = .systemOrange
         } else if let s = shortcut {
             title = s.displayString
             contentTintColor = .labelColor
         } else {
-            title = "点击设置"
+            title = L("rec.empty")
             contentTintColor = .secondaryLabelColor
         }
     }
@@ -128,13 +128,13 @@ final class RecorderButton: NSButton {
             coordinator?.commit(binding)
 
         case .sameApp(let name):
-            showConflict("⚠ 已被 \(name) 使用")
+            showConflict(L("rec.conflict.app", name))
 
         case .systemNamed(let name):
-            showConflict("⚠ 系统快捷键『\(name)』")
+            showConflict(L("rec.conflict.system", name))
 
         case .system:
-            showConflict("⚠ 已被其他 App 占用")
+            showConflict(L("rec.conflict.other"))
         }
     }
 

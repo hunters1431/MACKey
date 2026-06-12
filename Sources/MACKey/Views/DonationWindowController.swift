@@ -11,7 +11,7 @@ final class DonationWindowController: NSWindowController {
             backing: .buffered,
             defer: false
         )
-        window.title = "支持 MACKey · Support MACKey"
+        window.title = L("win.donate")
         window.center()
         window.contentView = NSHostingView(rootView: DonationView())
         window.isReleasedWhenClosed = false

@@ -29,7 +29,7 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: 1) {
                 Text("MACKey")
                     .font(.title2.weight(.semibold))
-                Text("程序快捷键启动器")
+                Text(L("app.subtitle"))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -39,7 +39,7 @@ struct SettingsView: View {
             Button {
                 DonationWindowController.shared.show()
             } label: {
-                Label("支持作者", systemImage: "cup.and.saucer.fill")
+                Label(L("btn.support"), systemImage: "cup.and.saucer.fill")
             }
             .buttonStyle(.borderedProminent)
             .tint(.pink)
@@ -49,7 +49,7 @@ struct SettingsView: View {
                 store.refreshFromDock()
                 loadSystemShortcuts()
             } label: {
-                Label("从 Dock 刷新", systemImage: "arrow.clockwise")
+                Label(L("btn.refresh"), systemImage: "arrow.clockwise")
             }
             .controlSize(.large)
         }
@@ -76,12 +76,12 @@ struct SettingsView: View {
     private var columns: some View {
         HStack(spacing: 0) {
             column(
-                title: "系统快捷键清单", systemImage: "command",
+                title: L("col.system"), systemImage: "command",
                 count: systemShortcuts.count,
-                hint: "读自系统设置，仅显示已启用项"
+                hint: L("hint.system")
             ) {
                 if systemShortcuts.isEmpty {
-                    emptyHint("未读取到已启用的系统快捷键")
+                    emptyHint(L("empty.system"))
                 } else {
                     List(systemShortcuts) { SystemShortcutRow(item: $0) }
                         .listStyle(.plain)
@@ -91,13 +91,13 @@ struct SettingsView: View {
             Divider()
 
             column(
-                title: "定向程序快捷键", systemImage: "star.fill",
+                title: L("col.custom"), systemImage: "star.fill",
                 count: store.customEntries.count,
-                hint: "点「+」添加任意程序，可绑任意组合键",
+                hint: L("hint.custom"),
                 accessory: AnyView(addButton)
             ) {
                 if store.customEntries.isEmpty {
-                    emptyHint("点右上「+」添加任意程序\n再录制任意组合键")
+                    emptyHint(L("empty.custom"))
                 } else {
                     List(store.customEntries) { CustomAppRow(entry: $0) }
                         .listStyle(.plain)
@@ -107,12 +107,12 @@ struct SettingsView: View {
             Divider()
 
             column(
-                title: "按程序坞排序", systemImage: "menubar.dock.rectangle",
+                title: L("col.dock"), systemImage: "menubar.dock.rectangle",
                 count: dockApps.count,
-                hint: "前 10 个自动绑定 ⌃ 数字；点快捷键栏可改键"
+                hint: L("hint.dock")
             ) {
                 if dockApps.isEmpty {
-                    emptyHint("未从 Dock 读取到应用")
+                    emptyHint(L("empty.dock"))
                 } else {
                     List(dockApps) { AppRowView(entry: $0) }
                         .listStyle(.plain)
@@ -178,7 +178,7 @@ struct SettingsView: View {
                 .foregroundColor(.accentColor)
         }
         .buttonStyle(.borderless)
-        .help("添加应用")
+        .help(L("tip.add"))
     }
 
     private func addCustomApp() {
@@ -188,8 +188,8 @@ struct SettingsView: View {
         panel.allowsMultipleSelection = true
         panel.allowedContentTypes = [.application]
         panel.directoryURL = URL(fileURLWithPath: "/Applications")
-        panel.prompt = "添加"
-        panel.message = "选择要绑定快捷键的程序"
+        panel.prompt = L("panel.add")
+        panel.message = L("panel.msg")
         if panel.runModal() == .OK {
             panel.urls.forEach { SettingsStore.shared.addCustomApp(at: $0) }
         }

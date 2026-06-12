@@ -8,6 +8,13 @@
     <string>com.wentao.mackey</string>
     <key>CFBundleName</key>
     <string>MACKey</string>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>zh-Hans</string>
+    </array>
     <key>CFBundleDisplayName</key>
     <string>MACKey</string>
     <key>CFBundleIconFile</key>

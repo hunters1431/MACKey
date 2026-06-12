@@ -37,6 +37,13 @@ for asset in wechat_qr alipay_qr; do
     fi
 done
 
+for lproj in Resources/*.lproj; do
+    if [ -d "$lproj" ]; then
+        cp -R "$lproj" "$APP/Contents/Resources/"
+        echo "    localization: $(basename "$lproj") bundled"
+    fi
+done
+
 echo "==> Ad-hoc signing"
 codesign --force --deep -s - "$APP"
 

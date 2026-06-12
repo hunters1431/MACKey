@@ -35,7 +35,7 @@ final class StatusBarController: NSObject {
         menu.delegate = self
 
         let settingsItem = NSMenuItem(
-            title: "设置快捷键…",
+            title: L("menu.settings"),
             action: #selector(openSettings),
             keyEquivalent: ","
         )
@@ -43,7 +43,7 @@ final class StatusBarController: NSObject {
         menu.addItem(settingsItem)
 
         let refreshItem = NSMenuItem(
-            title: "从 Dock 刷新应用列表",
+            title: L("menu.refresh"),
             action: #selector(refreshFromDock),
             keyEquivalent: "r"
         )
@@ -53,7 +53,7 @@ final class StatusBarController: NSObject {
         menu.addItem(.separator())
 
         let launch = NSMenuItem(
-            title: "开机时启动",
+            title: L("menu.launch"),
             action: #selector(toggleLaunchAtLogin),
             keyEquivalent: ""
         )
@@ -64,7 +64,7 @@ final class StatusBarController: NSObject {
         menu.addItem(.separator())
 
         let donateItem = NSMenuItem(
-            title: "☕ 支持作者…",
+            title: L("menu.support"),
             action: #selector(openDonation),
             keyEquivalent: ""
         )
@@ -74,7 +74,7 @@ final class StatusBarController: NSObject {
         menu.addItem(.separator())
 
         let quitItem = NSMenuItem(
-            title: "退出 MACKey",
+            title: L("menu.quit"),
             action: #selector(NSApplication.terminate(_:)),
             keyEquivalent: "q"
         )

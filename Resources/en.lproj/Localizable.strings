@@ -1,0 +1,80 @@
+/* App */
+"app.subtitle" = "Your macOS shortcut hub";
+"win.settings" = "MACKey — Shortcuts";
+"win.donate" = "Support MACKey";
+
+/* Menu bar */
+"menu.settings" = "Shortcut Settings…";
+"menu.refresh" = "Refresh Apps from Dock";
+"menu.launch" = "Launch at Login";
+"menu.support" = "☕ Support…";
+"menu.quit" = "Quit MACKey";
+
+/* Top bar buttons */
+"btn.support" = "Support";
+"btn.refresh" = "Refresh from Dock";
+
+/* Column titles */
+"col.system" = "System Shortcuts";
+"col.custom" = "App Shortcuts";
+"col.dock" = "By Dock Order";
+
+/* Column hints */
+"hint.system" = "Read from System Settings; enabled only";
+"hint.custom" = "Click + to add any app with any combo";
+"hint.dock" = "First 10 auto-bound to ⌃ digits; click to rebind";
+
+/* Empty states */
+"empty.system" = "No enabled system shortcuts found";
+"empty.custom" = "Click + above to add an app,\nthen record any combo";
+"empty.dock" = "No apps found in the Dock";
+
+/* Tooltips & panel */
+"tip.add" = "Add app";
+"tip.remove" = "Remove from list";
+"panel.add" = "Add";
+"panel.msg" = "Choose an app to bind a shortcut";
+
+/* Recorder */
+"rec.recording" = "Recording…  (Esc)";
+"rec.empty" = "Click to set";
+"rec.conflict.app" = "⚠ Used by %@";
+"rec.conflict.system" = "⚠ System: %@";
+"rec.conflict.other" = "⚠ Taken by another app";
+
+/* Donation */
+"donate.title" = "Support MACKey";
+"donate.subtitle" = "If MACKey helps you, buy me a coffee ☕";
+"donate.wechat" = "WeChat";
+"donate.alipay" = "Alipay";
+"donate.qrPlaceholder" = "Add wechat_qr.png /\nalipay_qr.png to show";
+"donate.thanks" = "Thank you for your support";
+
+/* System shortcut names */
+"sys.input.prev" = "Select Previous Input Source";
+"sys.input.next" = "Select Next Input Source";
+"sys.spotlight" = "Spotlight Search";
+"sys.spotlight.finder" = "Spotlight Finder Search";
+"sys.screenshot.file" = "Screenshot to File";
+"sys.screenshot.clip" = "Screenshot to Clipboard";
+"sys.screenshot.area.file" = "Area Screenshot to File";
+"sys.screenshot.area.clip" = "Area Screenshot to Clipboard";
+"sys.screenshot.toolbar" = "Screenshot & Recording Toolbar";
+"sys.mission" = "Mission Control";
+"sys.appwindows" = "Application Windows";
+"sys.showdesktop" = "Show Desktop";
+"sys.space.left" = "Move Left a Space";
+"sys.space.right" = "Move Right a Space";
+"sys.menubar" = "Focus Menu Bar";
+"sys.dock" = "Focus the Dock";
+"sys.windowtile" = "Focus Previous Window Tile";
+"sys.desktop1" = "Switch to Desktop 1";
+"sys.desktop2" = "Switch to Desktop 2";
+"sys.desktop3" = "Switch to Desktop 3";
+"sys.launchpad" = "Launchpad";
+"sys.notification" = "Notification Center";
+"sys.dictation" = "Dictation";
+"sys.dnd" = "Do Not Disturb";
+"sys.spotlightFocus" = "Spotlight";
+"sys.quicknote" = "Quick Note";
+"sys.unknown" = "System Shortcut #%d";
