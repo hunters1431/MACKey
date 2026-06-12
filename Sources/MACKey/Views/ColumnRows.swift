@@ -2,19 +2,24 @@ import SwiftUI
 
 // MARK: - Shortcut chip
 
-/// A small monospaced pill rendering a key combination, e.g. "⌘1".
+/// A monospaced bordered pill rendering a key combination, e.g. "⌘ + Space".
+/// Styled to match the recorder pills in columns ②③ for a consistent look.
 struct ShortcutChip: View {
     let text: String
 
     var body: some View {
         Text(text)
-            .font(.system(size: 11, weight: .semibold, design: .monospaced))
+            .font(.system(size: 11.5, weight: .medium, design: .monospaced))
             .foregroundColor(.primary)
-            .padding(.horizontal, 6)
-            .padding(.vertical, 2)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 3)
             .background(
-                RoundedRectangle(cornerRadius: 5)
-                    .fill(Color.secondary.opacity(0.15))
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(Color.secondary.opacity(0.10))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color.secondary.opacity(0.22), lineWidth: 0.5)
+                    )
             )
             .fixedSize()
     }
@@ -26,49 +31,35 @@ struct SystemShortcutRow: View {
     let item: SystemShortcut
 
     var body: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 10) {
+            Image(systemName: Self.icon(for: item.name))
+                .font(.system(size: 13))
+                .foregroundColor(.secondary)
+                .frame(width: 20, height: 20)
             Text(item.name)
-                .font(.system(size: 12))
+                .font(.system(size: 13))
                 .lineLimit(1)
                 .truncationMode(.tail)
-            Spacer(minLength: 6)
+            Spacer(minLength: 8)
             ShortcutChip(text: item.displayString)
         }
-        .padding(.vertical, 3)
-    }
-}
-
-// MARK: - Column ② row: an app that already has a binding (read-only summary)
-
-struct AssignedAppRow: View {
-    let entry: AppEntry
-
-    var body: some View {
-        HStack(spacing: 8) {
-            icon
-            Text(entry.name)
-                .font(.system(size: 12))
-                .lineLimit(1)
-                .truncationMode(.tail)
-            Spacer(minLength: 6)
-            if let s = entry.shortcut {
-                ShortcutChip(text: s.displayString)
-            }
-        }
-        .padding(.vertical, 3)
+        .padding(.vertical, 6)
     }
 
-    @ViewBuilder
-    private var icon: some View {
-        if let img = entry.icon {
-            Image(nsImage: img)
-                .resizable()
-                .interpolation(.high)
-                .frame(width: 18, height: 18)
-        } else {
-            Image(systemName: "app.dashed")
-                .frame(width: 18, height: 18)
-                .foregroundColor(.secondary)
+    /// A meaningful SF Symbol per system shortcut, keyed on its name.
+    static func icon(for name: String) -> String {
+        switch true {
+        case name.contains("截屏"):                       return "camera"
+        case name.contains("输入法"):                     return "globe"
+        case name.contains("Spotlight"), name.contains("聚焦"): return "magnifyingglass"
+        case name.contains("调度中心"), name.contains("应用程序窗口"): return "rectangle.3.group"
+        case name.contains("空间"), name.contains("桌面"): return "rectangle.split.3x1"
+        case name.contains("启动台"):                     return "square.grid.3x3"
+        case name.contains("通知"):                       return "bell"
+        case name.contains("听写"):                       return "mic"
+        case name.contains("勿扰"):                       return "moon"
+        case name.contains("备忘"):                       return "note.text"
+        default:                                         return "command"
         }
     }
 }
