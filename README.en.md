@@ -40,7 +40,7 @@ MACKey lives in your menu bar. It reads your Dock and auto-assigns `⌃1`…`⌃
 Requires macOS 13+ and the Swift 6 toolchain.
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/hunters1431/MACKey.git
 cd MACKey
 swift run             # run (debug)
 ./scripts/make_icon.swift  # regenerate the app icon (optional)

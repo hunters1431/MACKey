@@ -41,7 +41,7 @@ MACKey 是一个常驻菜单栏的小工具。它读取你「程序坞（Dock）
 需要 macOS 13+ 和 Swift 6 工具链。
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/hunters1431/MACKey.git
 cd MACKey
 swift run            # 直接运行（调试）
 ./scripts/package.sh # 打包出 MACKey.app 和 DMG
