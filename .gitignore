@@ -1,0 +1,6 @@
+.build/
+.swiftpm/
+*.dmg
+MACKey.app/
+.DS_Store
+xcuserdata/
