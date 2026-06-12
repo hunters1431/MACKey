@@ -21,6 +21,8 @@ Bind **any** key combo to **any** app (not just Dock apps). Click +, pick an app
 ### 3️⃣ Dock shortcuts
 The first 10 Dock apps work **out of the box**, auto-bound to `⌃1`…`⌃0` for instant launch / switch — re-mappable anytime. Inspired by the classic Snap.
 
+> 💡 **Why MACKey**: Snap is a classic Intel-only app that was never rebuilt for Apple silicon. As Apple phases out support for Intel apps, Snap will eventually stop running — MACKey is built natively for Apple silicon to fill that gap.
+
 ---
 
 Plus: live **conflict detection** while recording (system / other-app clashes highlighted by name), a **launch-at-login** toggle, **menu-bar-only** footprint, and **English / Chinese** following your system language.
