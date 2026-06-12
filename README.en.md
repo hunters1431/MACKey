@@ -4,26 +4,22 @@
 
 <h1 align="center">MACKey</h1>
 
-<p align="center">Your all-in-one macOS keyboard-shortcut hub — browse system shortcuts, bind custom ones to any app, and quick-launch from the Dock.</p>
+<p align="center"><b>One keystroke. Any app.</b></p>
+
+<p align="center">The macOS shortcut hub — look up, bind, and launch, all from one panel.</p>
 
 <p align="center"><a href="README.md">中文说明</a></p>
 
-On macOS, shortcuts are scattered everywhere: system ones are buried in System Settings, every app keeps its own, and there's no single place to add a global hotkey for a program. **MACKey lives in your menu bar and brings all three together in one panel** — so you can see and control every shortcut at a glance.
+## Why MACKey
 
-## Three pillars
+- 🚀 **Works out of the box** — your first 10 Dock apps are auto-bound to `⌃1`…`⌃0`; zero setup, instant switching
+- 🎯 **Bind anything** — any app × any key combo, global, one keystroke to your most-used apps
+- 🔍 **See it all** — system shortcuts ranked by real-world frequency, your customizations synced live; no more digging through System Settings
+- 🛡️ **Never collide** — live conflict detection while recording, named warnings like "taken by the system's Screenshot"
 
-### 1️⃣ Browse system shortcuts
-See macOS's built-in global shortcuts in one place — Spotlight, screenshots, Mission Control, input-source switching, Spaces, and more. It merges the **factory defaults with your own customizations**, so you don't have to dig through System Settings. When you set your own shortcut, conflicts are flagged **by name**: "taken by the system's Screenshot."
+> A tribute to the classic Snap. As Rosetta 2 retires, Intel apps will stop running on Apple silicon — MACKey is native ARM, picking up the baton.
 
-### 2️⃣ Custom app shortcuts
-Bind **any** key combo to **any** app (not just Dock apps). Click +, pick an app, record `⌥ + 1`, `⌃ + ⇧ + K`, anything — it works globally, taking you straight to the apps you use most.
-
-### 3️⃣ Dock shortcuts
-The first 10 Dock apps work **out of the box**, auto-bound to `⌃1`…`⌃0` for instant launch / switch — re-mappable anytime. Inspired by the classic Snap (a tribute — but as Rosetta 2 is retired, Intel (x86) apps will no longer run on Apple silicon (ARM); MACKey is native ARM, picking up the baton).
-
----
-
-Plus: live **conflict detection** while recording (system / other-app clashes highlighted by name), a **launch-at-login** toggle, **menu-bar-only** footprint, and **English / Chinese** following your system language.
+Menu-bar only · Launch at login · English & Chinese · Free & open source
 
 ## Install
 
@@ -36,7 +32,7 @@ Plus: live **conflict detection** while recording (system / other-app clashes hi
 
 ## Usage
 
-Click the `⌘K` menu-bar item → "Shortcut Settings…" to open the three-column panel, one per pillar:
+Click the `⌘K` menu-bar item → "Shortcut Settings…" to open the three-column panel:
 
 - **System Shortcuts** (left): read-only reference of what's already taken.
 - **App Shortcuts** (middle): click + to add any app and record any combo.
