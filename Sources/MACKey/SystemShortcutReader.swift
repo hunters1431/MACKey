@@ -185,13 +185,23 @@ enum SystemShortcutReader {
 
     // MARK: Private
 
+    private static var plistCacheTime: Date = .distantPast
+    private static var plistCache: [String: Any]? = nil
+
     private static func loadPlistHotkeys() -> [String: Any]? {
+        if Date().timeIntervalSince(plistCacheTime) < 5 { return plistCache }
         let path = NSHomeDirectory() + "/Library/Preferences/com.apple.symbolichotkeys.plist"
         guard
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
             let plist = try? PropertyListSerialization.propertyList(from: data, format: nil) as? [String: Any],
             let hotkeys = plist["AppleSymbolicHotKeys"] as? [String: Any]
-        else { return nil }
+        else {
+            plistCacheTime = Date()
+            plistCache = nil
+            return nil
+        }
+        plistCacheTime = Date()
+        plistCache = hotkeys
         return hotkeys
     }
 }

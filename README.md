@@ -20,6 +20,12 @@
 
 纯菜单栏常驻 · 开机自启 · 中英双语 · 免费开源
 
+## 截图
+
+<p align="center">
+  <img src="docs/screenshot_zh.jpg" alt="MACKey 中文界面" width="800">
+</p>
+
 ## 安装
 
 1. 从 [Releases](../../releases) 下载最新的 `MACKey-x.y.z.dmg`。

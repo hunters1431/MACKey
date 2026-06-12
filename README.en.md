@@ -22,6 +22,12 @@
 
 Menu-bar only · Launch at login · English & Chinese · Free & open source
 
+## Screenshot
+
+<p align="center">
+  <img src="docs/screenshot_en.jpg" alt="MACKey English UI" width="800">
+</p>
+
 ## Install
 
 1. Download the latest `MACKey-x.y.z.dmg` from [Releases](../../releases).

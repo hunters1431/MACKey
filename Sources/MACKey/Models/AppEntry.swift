@@ -8,13 +8,18 @@ struct AppEntry: Identifiable, Codable {
     let appPath: String
     var shortcut: ShortcutBinding?
 
-    // Not Codable — computed on demand
+    // Not Codable — computed on demand, cached by path to avoid repeated disk I/O
+    private static var iconCache: [String: NSImage] = [:]
+
     var icon: NSImage? {
         let path = appPath.hasPrefix("file://")
             ? (URL(string: appPath)?.path ?? appPath)
             : appPath
         guard !path.isEmpty else { return nil }
-        return NSWorkspace.shared.icon(forFile: path)
+        if let cached = AppEntry.iconCache[path] { return cached }
+        let img = NSWorkspace.shared.icon(forFile: path)
+        AppEntry.iconCache[path] = img
+        return img
     }
 
     init(name: String, bundleIdentifier: String, appPath: String, shortcut: ShortcutBinding? = nil) {

@@ -51,7 +51,7 @@ final class SettingsStore: ObservableObject {
 
     func refreshFromDock() {
         let dockApps = DockReader.readApps()
-        let existingByBundleID = Dictionary(uniqueKeysWithValues: entries.map { ($0.bundleIdentifier, $0) })
+        let existingByBundleID = Dictionary(entries.map { ($0.bundleIdentifier, $0) }) { first, _ in first }
         entries = dockApps.map { existingByBundleID[$0.bundleIdentifier] ?? $0 }
         assignDefaultShortcuts()
         persist()
@@ -64,7 +64,7 @@ final class SettingsStore: ObservableObject {
     @discardableResult
     func addCustomApp(at url: URL) -> Bool {
         let bundle = Bundle(url: url)
-        let bundleID = bundle?.bundleIdentifier ?? url.path
+        let bundleID = bundle?.bundleIdentifier ?? url.standardizedFileURL.path
         guard !customEntries.contains(where: { $0.bundleIdentifier == bundleID }) else { return false }
 
         let name = (bundle?.infoDictionary?["CFBundleDisplayName"] as? String)
