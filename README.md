@@ -4,6 +4,12 @@
 
 <h1 align="center">MACKey</h1>
 
+<p align="center">
+  <a href="https://github.com/hunters1431/MACKey/releases"><img src="https://img.shields.io/github/v/release/hunters1431/MACKey?color=blue&label=release" alt="Latest Release"></a>
+  <img src="https://img.shields.io/badge/platform-macOS%2013%2B-lightgrey?logo=apple&logoColor=white" alt="Platform">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+</p>
+
 <p align="center"><b>Open any app with one key.</b></p>
 
 <p align="center">The macOS shortcut hub: every shortcut at a glance — look up system keys, customize any app, order them your way.</p>

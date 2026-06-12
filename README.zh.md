@@ -4,6 +4,12 @@
 
 <h1 align="center">MACKey</h1>
 
+<p align="center">
+  <a href="https://github.com/hunters1431/MACKey/releases"><img src="https://img.shields.io/github/v/release/hunters1431/MACKey?color=blue&label=release" alt="最新版本"></a>
+  <img src="https://img.shields.io/badge/platform-macOS%2013%2B-lightgrey?logo=apple&logoColor=white" alt="平台">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="许可证">
+</p>
+
 <p align="center"><b>一键秒开任何应用。</b></p>
 
 <p align="center">macOS 快捷键中心：所有快捷键一目了然 —— 系统键可查、任意 App 可定制、顺序随心排。</p>
