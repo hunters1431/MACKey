@@ -17,7 +17,17 @@ final class StatusBarController: NSObject {
 
     private func setupButton() {
         guard let button = statusItem.button else { return }
-        button.image = NSImage(systemSymbolName: "keyboard", accessibilityDescription: "MACKey")
+        // Prominent "⌘K" wordmark in the menu bar (adapts to light/dark via labelColor).
+        let size: CGFloat = 14
+        let base = NSFont.systemFont(ofSize: size, weight: .semibold)
+        let font = (base.fontDescriptor.withDesign(.rounded)).flatMap {
+            NSFont(descriptor: $0, size: size)
+        } ?? base
+        button.attributedTitle = NSAttributedString(string: "⌘K", attributes: [
+            .font: font,
+            .foregroundColor: NSColor.labelColor,
+        ])
+        button.image = nil
     }
 
     private func setupMenu() {
@@ -53,6 +63,16 @@ final class StatusBarController: NSObject {
 
         menu.addItem(.separator())
 
+        let donateItem = NSMenuItem(
+            title: "☕ 支持作者…",
+            action: #selector(openDonation),
+            keyEquivalent: ""
+        )
+        donateItem.target = self
+        menu.addItem(donateItem)
+
+        menu.addItem(.separator())
+
         let quitItem = NSMenuItem(
             title: "退出 MACKey",
             action: #selector(NSApplication.terminate(_:)),
@@ -76,6 +96,10 @@ final class StatusBarController: NSObject {
 
     @objc private func refreshFromDock() {
         SettingsStore.shared.refreshFromDock()
+    }
+
+    @objc private func openDonation() {
+        DonationWindowController.shared.show()
     }
 
     @objc private func toggleLaunchAtLogin() {

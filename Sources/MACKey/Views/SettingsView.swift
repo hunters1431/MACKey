@@ -144,6 +144,13 @@ struct SettingsView: View {
                 .font(.caption)
                 .foregroundColor(.secondary)
             Spacer()
+            Button {
+                DonationWindowController.shared.show()
+            } label: {
+                Label("支持作者", systemImage: "cup.and.saucer")
+                    .font(.caption)
+            }
+            .buttonStyle(.borderless)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)

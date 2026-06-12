@@ -30,6 +30,13 @@ else
     echo "    icon: none (add Resources/AppIcon.icns to include one)"
 fi
 
+for asset in wechat_qr alipay_qr; do
+    if [ -f "Resources/${asset}.png" ]; then
+        cp "Resources/${asset}.png" "$APP/Contents/Resources/${asset}.png"
+        echo "    donation QR: ${asset}.png bundled"
+    fi
+done
+
 echo "==> Ad-hoc signing"
 codesign --force --deep -s - "$APP"
 
