@@ -50,7 +50,16 @@
 "donate.qrPlaceholder" = "放入 wechat_qr.png /\nalipay_qr.png 后显示";
 "donate.thanks" = "感谢你的支持 · Thank you";
 
+/* Column ① extras */
+"freq.sortNote" = "根据用户使用频率排序";
+"sys.openSettings" = "在系统设置中查看全部";
+
 /* System shortcut names */
+"sys.appswitch" = "切换应用";
+"sys.windowcycle" = "切换同一应用的窗口";
+"sys.lockscreen" = "锁定屏幕";
+"sys.forcequit" = "强制退出";
+"sys.dockhide" = "开关 Dock 隐藏";
 "sys.input.prev" = "切换到上一个输入法";
 "sys.input.next" = "切换到下一个输入法";
 "sys.spotlight" = "Spotlight 聚焦搜索";

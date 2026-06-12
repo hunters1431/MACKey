@@ -50,7 +50,16 @@
 "donate.qrPlaceholder" = "Add wechat_qr.png /\nalipay_qr.png to show";
 "donate.thanks" = "Thank you for your support";
 
+/* Column ① extras */
+"freq.sortNote" = "Sorted by usage frequency";
+"sys.openSettings" = "View all in System Settings";
+
 /* System shortcut names */
+"sys.appswitch" = "Switch Apps";
+"sys.windowcycle" = "Cycle App Windows";
+"sys.lockscreen" = "Lock Screen";
+"sys.forcequit" = "Force Quit";
+"sys.dockhide" = "Toggle Dock Hiding";
 "sys.input.prev" = "Select Previous Input Source";
 "sys.input.next" = "Select Next Input Source";
 "sys.spotlight" = "Spotlight Search";

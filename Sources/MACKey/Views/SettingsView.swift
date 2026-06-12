@@ -5,6 +5,7 @@ import UniformTypeIdentifiers
 struct SettingsView: View {
     @ObservedObject private var store = SettingsStore.shared
     @State private var systemShortcuts: [SystemShortcut] = []
+    @State private var sysExpanded = false
 
     /// First N Dock apps — the ones that get auto-assigned ⌃1…⌃0.
     private var dockApps: [AppEntry] {
@@ -78,14 +79,10 @@ struct SettingsView: View {
             column(
                 title: L("col.system"), systemImage: "command",
                 count: systemShortcuts.count,
-                hint: L("hint.system")
+                hint: L("hint.system"),
+                footer: AnyView(systemSettingsLink)
             ) {
-                if systemShortcuts.isEmpty {
-                    emptyHint(L("empty.system"))
-                } else {
-                    List(systemShortcuts) { SystemShortcutRow(item: $0) }
-                        .listStyle(.plain)
-                }
+                systemColumnContent
             }
 
             Divider()
@@ -130,6 +127,7 @@ struct SettingsView: View {
         count: Int,
         hint: String,
         accessory: AnyView? = nil,
+        footer: AnyView? = nil,
         @ViewBuilder content: () -> Content
     ) -> some View {
         VStack(spacing: 0) {
@@ -157,18 +155,71 @@ struct SettingsView: View {
 
             Divider()
 
-            HStack(spacing: 5) {
-                Image(systemName: "info.circle")
-                    .font(.system(size: 10))
-                Text(hint)
-                    .font(.caption2)
-                Spacer()
+            Group {
+                if let footer {
+                    footer
+                } else {
+                    HStack(spacing: 5) {
+                        Image(systemName: "info.circle")
+                            .font(.system(size: 10))
+                        Text(hint)
+                            .font(.caption2)
+                        Spacer()
+                    }
+                    .foregroundColor(.secondary)
+                }
             }
-            .foregroundColor(.secondary)
             .padding(.horizontal, 14)
             .padding(.vertical, 9)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    // MARK: - Column ① (system shortcuts)
+
+    @ViewBuilder
+    private var systemColumnContent: some View {
+        if systemShortcuts.isEmpty {
+            emptyHint(L("empty.system"))
+        } else {
+            let top = Array(systemShortcuts.prefix(10))
+            let rest = Array(systemShortcuts.dropFirst(10))
+            List {
+                ForEach(top) { SystemShortcutRow(item: $0) }
+                if !rest.isEmpty {
+                    DisclosureGroup(isExpanded: $sysExpanded) {
+                        ForEach(rest) { SystemShortcutRow(item: $0) }
+                    } label: {
+                        Text(L("freq.sortNote"))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+            .listStyle(.plain)
+        }
+    }
+
+    private var systemSettingsLink: some View {
+        Button(action: openKeyboardSettings) {
+            HStack(spacing: 5) {
+                Image(systemName: "gearshape")
+                    .font(.system(size: 10))
+                Text(L("sys.openSettings"))
+                    .font(.caption2)
+                Spacer()
+                Image(systemName: "arrow.up.right")
+                    .font(.system(size: 9))
+            }
+            .foregroundColor(.accentColor)
+        }
+        .buttonStyle(.borderless)
+    }
+
+    private func openKeyboardSettings() {
+        if let url = URL(string: "x-apple.systempreferences:com.apple.Keyboard-Settings.extension") {
+            NSWorkspace.shared.open(url)
+        }
     }
 
     private var addButton: some View {
@@ -210,8 +261,7 @@ struct SettingsView: View {
     // MARK: - Data
 
     private func loadSystemShortcuts() {
-        systemShortcuts = SystemShortcutReader.readEnabled()
-            .sorted { $0.name < $1.name }
+        systemShortcuts = SystemShortcutReader.curatedList()
     }
 
     private static func appIconImage() -> NSImage? {
