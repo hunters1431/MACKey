@@ -1,4 +1,4 @@
-# Replace the placeholders with your real handles, then GitHub shows a
-# "Sponsor" button at the top of the repo. Remove any line you don't use.
-github: [yourID]                       # GitHub Sponsors username
-ko_fi: yourID                          # https://ko-fi.com/yourID
+# Shows a "Sponsor" button at the top of the GitHub repo.
+ko_fi: hunters1431
+custom:
+  - "https://www.paypal.com/donate/?business=hunterapple33@gmail.com&item_name=Support+MACKey&currency_code=USD"

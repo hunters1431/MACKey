@@ -9,9 +9,10 @@ enum DonationConfig {
     static let alipayQRName = "alipay_qr"                       // Resources/alipay_qr.png
 
     // 国外 / international
-    static let githubSponsors = "https://github.com/sponsors/yourID"
-    static let koFi = "https://ko-fi.com/yourID"
-    static let buyMeACoffee = ""                               // 留空则不显示
+    static let githubSponsors = ""                              // 没开 GitHub Sponsors，留空
+    static let koFi = "https://ko-fi.com/hunters1431"
+    // PayPal 邮箱收款（捐赠直链）
+    static let paypal = "https://www.paypal.com/donate/?business=hunterapple33@gmail.com&item_name=Support+MACKey&currency_code=USD"
 
     struct Link: Identifiable {
         let id = UUID()
@@ -23,9 +24,9 @@ enum DonationConfig {
     /// Non-empty link buttons, in display order.
     static var links: [Link] {
         [
-            Link(title: "GitHub Sponsors", systemImage: "heart.circle", url: githubSponsors),
             Link(title: "Ko-fi", systemImage: "cup.and.saucer", url: koFi),
-            Link(title: "Buy Me a Coffee", systemImage: "cup.and.saucer", url: buyMeACoffee),
+            Link(title: "PayPal", systemImage: "creditcard", url: paypal),
+            Link(title: "GitHub Sponsors", systemImage: "heart.circle", url: githubSponsors),
         ].filter { !$0.url.isEmpty }
     }
 }
