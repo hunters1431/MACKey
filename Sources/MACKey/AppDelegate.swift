@@ -5,8 +5,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         requestAccessibilityIfNeeded()
-        SettingsStore.shared.load()
-        ShortcutManager.shared.reloadAll(entries: SettingsStore.shared.entries)
+        SettingsStore.shared.load()   // registers all hotkeys internally
         statusBarController = StatusBarController()
     }
 

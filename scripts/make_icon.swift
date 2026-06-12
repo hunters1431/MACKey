@@ -42,7 +42,7 @@ func render(_ px: Int) -> NSBitmapImageRep {
     ctx.drawLinearGradient(grad, start: CGPoint(x: 0, y: s), end: CGPoint(x: s, y: 0), options: [])
 
     // "⌘K" centered, white, rounded-bold
-    let fontSize = s * 0.40
+    let fontSize = s * 0.52
     let para = NSMutableParagraphStyle(); para.alignment = .center
     let shadow = NSShadow()
     shadow.shadowColor = NSColor(white: 0, alpha: 0.18)

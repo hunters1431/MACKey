@@ -7,7 +7,7 @@ final class StatusBarController: NSObject {
     private var launchItem: NSMenuItem?
 
     override init() {
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         super.init()
         setupButton()
         setupMenu()

@@ -5,15 +5,24 @@ import Combine
 final class SettingsStore: ObservableObject {
     static let shared = SettingsStore()
 
+    /// Column ③ — first N Dock apps, auto-assigned ⌃1…⌃0.
     @Published var entries: [AppEntry] = []
+    /// Column ② — user-curated apps with arbitrary custom shortcuts.
+    @Published var customEntries: [AppEntry] = []
 
     private let defaultsKey = "shortcut.entries.v1"
+    private let customKey = "mackey.custom.v1"
 
     /// How many leading Dock apps get an auto-assigned shortcut.
     static let autoAssignCount = 10
 
     /// Virtual key codes for the digit row 1,2,3,4,5,6,7,8,9,0 (in that order).
     private static let digitKeyCodes: [UInt32] = [18, 19, 20, 21, 23, 22, 26, 28, 25, 29]
+
+    /// All active bindings across both columns — what ShortcutManager registers / checks.
+    var allBindings: [AppEntry] { entries + customEntries }
+
+    // MARK: - Load
 
     func load() {
         if let data = UserDefaults.standard.data(forKey: defaultsKey),
@@ -22,46 +31,83 @@ final class SettingsStore: ObservableObject {
         } else {
             entries = DockReader.readApps()
         }
+        if let data = UserDefaults.standard.data(forKey: customKey),
+           let decoded = try? JSONDecoder().decode([AppEntry].self, from: data) {
+            customEntries = decoded
+        }
         assignDefaultShortcuts()
         persist()
+        reloadHotKeys()
     }
+
+    // MARK: - Column ③ (Dock) mutations
 
     func updateShortcut(for id: UUID, binding: ShortcutBinding?) {
         guard let idx = entries.firstIndex(where: { $0.id == id }) else { return }
         entries[idx].shortcut = binding
         persist()
-        ShortcutManager.shared.reloadAll(entries: entries)
+        reloadHotKeys()
     }
 
     func refreshFromDock() {
         let dockApps = DockReader.readApps()
         let existingByBundleID = Dictionary(uniqueKeysWithValues: entries.map { ($0.bundleIdentifier, $0) })
-        // Preserve shortcuts for known apps; add new ones
-        entries = dockApps.map { app in
-            existingByBundleID[app.bundleIdentifier] ?? app
-        }
+        entries = dockApps.map { existingByBundleID[$0.bundleIdentifier] ?? $0 }
         assignDefaultShortcuts()
         persist()
-        ShortcutManager.shared.reloadAll(entries: entries)
+        reloadHotKeys()
+    }
+
+    // MARK: - Column ② (custom) mutations
+
+    /// Add an .app chosen by the user; ignores duplicates by bundle id.
+    @discardableResult
+    func addCustomApp(at url: URL) -> Bool {
+        let bundle = Bundle(url: url)
+        let bundleID = bundle?.bundleIdentifier ?? url.path
+        guard !customEntries.contains(where: { $0.bundleIdentifier == bundleID }) else { return false }
+
+        let name = (bundle?.infoDictionary?["CFBundleDisplayName"] as? String)
+            ?? (bundle?.infoDictionary?["CFBundleName"] as? String)
+            ?? FileManager.default.displayName(atPath: url.path).replacingOccurrences(of: ".app", with: "")
+
+        customEntries.append(AppEntry(name: name, bundleIdentifier: bundleID, appPath: url.path))
+        persist()
+        reloadHotKeys()
+        return true
+    }
+
+    func updateCustomShortcut(for id: UUID, binding: ShortcutBinding?) {
+        guard let idx = customEntries.firstIndex(where: { $0.id == id }) else { return }
+        customEntries[idx].shortcut = binding
+        persist()
+        reloadHotKeys()
+    }
+
+    func removeCustomEntry(id: UUID) {
+        customEntries.removeAll { $0.id == id }
+        persist()
+        reloadHotKeys()
     }
 
     // MARK: - Auto assignment (Snap-style ⌃1…⌃0 by Dock position)
 
-    /// Assign ⌃1, ⌃2, … ⌃9, ⌃0 to the first N Dock apps that don't already
-    /// have a user-set shortcut. Position drives the digit.
     private func assignDefaultShortcuts() {
         let control = NSEvent.ModifierFlags.control.rawValue
         let count = min(Self.autoAssignCount, entries.count)
         for i in 0..<count where entries[i].shortcut == nil {
-            entries[i].shortcut = ShortcutBinding(
-                keyCode: Self.digitKeyCodes[i],
-                modifierFlags: control
-            )
+            entries[i].shortcut = ShortcutBinding(keyCode: Self.digitKeyCodes[i], modifierFlags: control)
         }
     }
 
+    // MARK: - Persistence & registration
+
+    private func reloadHotKeys() {
+        ShortcutManager.shared.reloadAll(entries: allBindings)
+    }
+
     private func persist() {
-        guard let data = try? JSONEncoder().encode(entries) else { return }
-        UserDefaults.standard.set(data, forKey: defaultsKey)
+        if let d = try? JSONEncoder().encode(entries) { UserDefaults.standard.set(d, forKey: defaultsKey) }
+        if let d = try? JSONEncoder().encode(customEntries) { UserDefaults.standard.set(d, forKey: customKey) }
     }
 }

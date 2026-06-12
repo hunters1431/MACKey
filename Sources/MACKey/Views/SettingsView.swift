@@ -1,12 +1,10 @@
 import SwiftUI
+import AppKit
+import UniformTypeIdentifiers
 
 struct SettingsView: View {
     @ObservedObject private var store = SettingsStore.shared
     @State private var systemShortcuts: [SystemShortcut] = []
-
-    private var boundEntries: [AppEntry] {
-        store.entries.filter { $0.shortcut != nil }
-    }
 
     /// First N Dock apps — the ones that get auto-assigned ⌃1…⌃0.
     private var dockApps: [AppEntry] {
@@ -64,12 +62,13 @@ struct SettingsView: View {
 
             Divider()
 
-            // ② Assigned per-app shortcuts (read-only summary)
-            column(title: "定向程序快捷键", systemImage: "star.fill", count: boundEntries.count) {
-                if boundEntries.isEmpty {
-                    emptyHint("还没有为任何程序指定快捷键\n在右侧列表设置")
+            // ② User-curated apps with arbitrary custom shortcuts (editable)
+            column(title: "定向程序快捷键", systemImage: "star.fill",
+                   count: store.customEntries.count, accessory: AnyView(addButton)) {
+                if store.customEntries.isEmpty {
+                    emptyHint("点右上「+」添加任意程序\n再录制任意组合键")
                 } else {
-                    List(boundEntries) { AssignedAppRow(entry: $0) }
+                    List(store.customEntries) { CustomAppRow(entry: $0) }
                         .listStyle(.plain)
                 }
             }
@@ -95,6 +94,7 @@ struct SettingsView: View {
         title: String,
         systemImage: String,
         count: Int,
+        accessory: AnyView? = nil,
         @ViewBuilder content: () -> Content
     ) -> some View {
         VStack(spacing: 0) {
@@ -111,15 +111,39 @@ struct SettingsView: View {
                     .padding(.vertical, 1)
                     .background(Capsule().fill(Color.secondary.opacity(0.15)))
                 Spacer()
+                if let accessory { accessory }
             }
             .padding(.horizontal, 10)
-            .padding(.vertical, 8)
+            .padding(.vertical, 6)
 
             Divider()
 
             content()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    private var addButton: some View {
+        Button(action: addCustomApp) {
+            Image(systemName: "plus")
+                .font(.system(size: 12, weight: .semibold))
+        }
+        .buttonStyle(.borderless)
+        .help("添加应用")
+    }
+
+    private func addCustomApp() {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = true
+        panel.allowedContentTypes = [.application]
+        panel.directoryURL = URL(fileURLWithPath: "/Applications")
+        panel.prompt = "添加"
+        panel.message = "选择要绑定快捷键的程序"
+        if panel.runModal() == .OK {
+            panel.urls.forEach { SettingsStore.shared.addCustomApp(at: $0) }
+        }
     }
 
     private func emptyHint(_ text: String) -> some View {

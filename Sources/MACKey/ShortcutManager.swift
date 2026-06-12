@@ -50,7 +50,7 @@ final class ShortcutManager {
     /// Pass `excludingID` for the entry currently being edited so we don't report it as a self-conflict.
     func checkConflict(binding: ShortcutBinding, excludingID: UUID? = nil) -> ConflictResult {
         // 1. Check our own active entries first (fast, no Carbon call needed)
-        let entries = SettingsStore.shared.entries
+        let entries = SettingsStore.shared.allBindings
         for entry in entries {
             guard entry.id != excludingID else { continue }
             if entry.shortcut == binding {

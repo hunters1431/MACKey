@@ -4,8 +4,7 @@ import Foundation
 /// Leave a string empty ("") to hide that button. Put QR images at
 /// Resources/wechat_qr.png and Resources/alipay_qr.png — package.sh bundles them.
 enum DonationConfig {
-    // 国内
-    static let afdian = "https://afdian.net/a/yourID"          // 爱发电
+    // 国内：微信 / 支付宝收款码（图片放 Resources/）
     static let wechatQRName = "wechat_qr"                       // Resources/wechat_qr.png
     static let alipayQRName = "alipay_qr"                       // Resources/alipay_qr.png
 
@@ -24,7 +23,6 @@ enum DonationConfig {
     /// Non-empty link buttons, in display order.
     static var links: [Link] {
         [
-            Link(title: "爱发电", systemImage: "bolt.heart", url: afdian),
             Link(title: "GitHub Sponsors", systemImage: "heart.circle", url: githubSponsors),
             Link(title: "Ko-fi", systemImage: "cup.and.saucer", url: koFi),
             Link(title: "Buy Me a Coffee", systemImage: "cup.and.saucer", url: buyMeACoffee),
