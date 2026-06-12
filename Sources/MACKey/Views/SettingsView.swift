@@ -5,7 +5,6 @@ import UniformTypeIdentifiers
 struct SettingsView: View {
     @ObservedObject private var store = SettingsStore.shared
     @State private var systemShortcuts: [SystemShortcut] = []
-    @State private var sysExpanded = false
 
     /// First N Dock apps — the ones that get auto-assigned ⌃1…⌃0.
     private var dockApps: [AppEntry] {
@@ -182,21 +181,8 @@ struct SettingsView: View {
         if systemShortcuts.isEmpty {
             emptyHint(L("empty.system"))
         } else {
-            let top = Array(systemShortcuts.prefix(10))
-            let rest = Array(systemShortcuts.dropFirst(10))
-            List {
-                ForEach(top) { SystemShortcutRow(item: $0) }
-                if !rest.isEmpty {
-                    DisclosureGroup(isExpanded: $sysExpanded) {
-                        ForEach(rest) { SystemShortcutRow(item: $0) }
-                    } label: {
-                        Text(L("freq.sortNote"))
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                }
-            }
-            .listStyle(.plain)
+            List(systemShortcuts) { SystemShortcutRow(item: $0) }
+                .listStyle(.plain)
         }
     }
 
