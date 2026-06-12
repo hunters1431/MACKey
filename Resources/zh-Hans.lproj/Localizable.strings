@@ -8,6 +8,7 @@
 "menu.refresh" = "从 Dock 刷新应用列表";
 "menu.launch" = "开机时启动";
 "menu.support" = "☕ 支持作者…";
+"menu.feedback" = "💬 意见反馈…";
 "menu.quit" = "退出 MACKey";
 
 /* Top bar buttons */

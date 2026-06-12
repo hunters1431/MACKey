@@ -8,6 +8,7 @@
 "menu.refresh" = "Refresh Apps from Dock";
 "menu.launch" = "Launch at Login";
 "menu.support" = "☕ Support…";
+"menu.feedback" = "💬 Send Feedback…";
 "menu.quit" = "Quit MACKey";
 
 /* Top bar buttons */

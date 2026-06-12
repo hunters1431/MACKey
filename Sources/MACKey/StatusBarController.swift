@@ -71,6 +71,14 @@ final class StatusBarController: NSObject {
         donateItem.target = self
         menu.addItem(donateItem)
 
+        let feedbackItem = NSMenuItem(
+            title: L("menu.feedback"),
+            action: #selector(openFeedback),
+            keyEquivalent: ""
+        )
+        feedbackItem.target = self
+        menu.addItem(feedbackItem)
+
         menu.addItem(.separator())
 
         let quitItem = NSMenuItem(
@@ -100,6 +108,12 @@ final class StatusBarController: NSObject {
 
     @objc private func openDonation() {
         DonationWindowController.shared.show()
+    }
+
+    @objc private func openFeedback() {
+        if let url = URL(string: "https://github.com/hunters1431/MACKey/issues/new") {
+            NSWorkspace.shared.open(url)
+        }
     }
 
     @objc private func toggleLaunchAtLogin() {
