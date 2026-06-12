@@ -4,9 +4,9 @@
 
 <h1 align="center">MACKey</h1>
 
-<p align="center"><b>One keystroke. Any app.</b></p>
+<p align="center"><b>Open any app with one key.</b></p>
 
-<p align="center">The macOS shortcut hub — look up, bind, and launch, all from one panel.</p>
+<p align="center">The macOS shortcut hub: every shortcut at a glance — look up system keys, customize any app, order them your way.</p>
 
 <p align="center"><a href="README.md">中文说明</a></p>
 
@@ -16,6 +16,7 @@
 - 🎯 **Bind anything** — any app × any key combo, global, one keystroke to your most-used apps
 - 🔍 **See it all** — system shortcuts ranked by real-world frequency, your customizations synced live; no more digging through System Settings
 - 🛡️ **Never collide** — live conflict detection while recording, named warnings like "taken by the system's Screenshot"
+- 🔒 **Private by design** — runs 100% locally; no network, no tracking, no data ever leaves your Mac
 
 > A tribute to the classic Snap. As Rosetta 2 retires, Intel apps will stop running on Apple silicon — MACKey is native ARM, picking up the baton.
 
