@@ -16,42 +16,70 @@ struct SettingsView: View {
             topBar
             Divider()
             columns
-            Divider()
-            footer
         }
-        .frame(minWidth: 880, minHeight: 540)
+        .frame(minWidth: 920, minHeight: 560)
         .onAppear(perform: loadSystemShortcuts)
     }
 
     // MARK: - Top bar
 
     private var topBar: some View {
-        HStack(spacing: 8) {
-            Image(systemName: "keyboard")
-                .font(.title3)
-                .foregroundColor(.accentColor)
-            Text("MACKey")
-                .font(.headline)
+        HStack(spacing: 12) {
+            appIcon
+            VStack(alignment: .leading, spacing: 1) {
+                Text("MACKey")
+                    .font(.title2.weight(.semibold))
+                Text("程序快捷键启动器")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+
             Spacer()
+
+            Button {
+                DonationWindowController.shared.show()
+            } label: {
+                Label("支持作者", systemImage: "cup.and.saucer.fill")
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.pink)
+            .controlSize(.large)
+
             Button {
                 store.refreshFromDock()
                 loadSystemShortcuts()
             } label: {
                 Label("从 Dock 刷新", systemImage: "arrow.clockwise")
-                    .font(.subheadline)
             }
-            .buttonStyle(.borderless)
+            .controlSize(.large)
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 10)
+        .padding(.horizontal, 20)
+        .padding(.vertical, 14)
+    }
+
+    @ViewBuilder
+    private var appIcon: some View {
+        if let img = Self.appIconImage() {
+            Image(nsImage: img)
+                .resizable()
+                .interpolation(.high)
+                .frame(width: 40, height: 40)
+        } else {
+            Image(systemName: "keyboard")
+                .font(.system(size: 30))
+                .foregroundColor(.accentColor)
+        }
     }
 
     // MARK: - Three columns
 
     private var columns: some View {
         HStack(spacing: 0) {
-            // ① System shortcuts (read-only)
-            column(title: "系统快捷键清单", systemImage: "command", count: systemShortcuts.count) {
+            column(
+                title: "系统快捷键清单", systemImage: "command",
+                count: systemShortcuts.count,
+                hint: "读自系统设置，仅显示已启用项"
+            ) {
                 if systemShortcuts.isEmpty {
                     emptyHint("未读取到已启用的系统快捷键")
                 } else {
@@ -62,9 +90,12 @@ struct SettingsView: View {
 
             Divider()
 
-            // ② User-curated apps with arbitrary custom shortcuts (editable)
-            column(title: "定向程序快捷键", systemImage: "star.fill",
-                   count: store.customEntries.count, accessory: AnyView(addButton)) {
+            column(
+                title: "定向程序快捷键", systemImage: "star.fill",
+                count: store.customEntries.count,
+                hint: "点「+」添加任意程序，可绑任意组合键",
+                accessory: AnyView(addButton)
+            ) {
                 if store.customEntries.isEmpty {
                     emptyHint("点右上「+」添加任意程序\n再录制任意组合键")
                 } else {
@@ -75,8 +106,11 @@ struct SettingsView: View {
 
             Divider()
 
-            // ③ First 10 Dock apps, auto-assigned ⌃1…⌃0 (editable)
-            column(title: "按程序坞排序", systemImage: "menubar.dock.rectangle", count: dockApps.count) {
+            column(
+                title: "按程序坞排序", systemImage: "menubar.dock.rectangle",
+                count: dockApps.count,
+                hint: "前 10 个自动绑定 ⌃ 数字；点快捷键栏可改键"
+            ) {
                 if dockApps.isEmpty {
                     emptyHint("未从 Dock 读取到应用")
                 } else {
@@ -94,39 +128,54 @@ struct SettingsView: View {
         title: String,
         systemImage: String,
         count: Int,
+        hint: String,
         accessory: AnyView? = nil,
         @ViewBuilder content: () -> Content
     ) -> some View {
         VStack(spacing: 0) {
-            HStack(spacing: 6) {
+            HStack(spacing: 7) {
                 Image(systemName: systemImage)
-                    .font(.system(size: 12))
+                    .font(.system(size: 13))
                     .foregroundColor(.accentColor)
                 Text(title)
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.system(size: 13, weight: .semibold))
                 Text("\(count)")
-                    .font(.system(size: 10, weight: .medium))
+                    .font(.system(size: 11, weight: .medium))
                     .foregroundColor(.secondary)
-                    .padding(.horizontal, 5)
+                    .padding(.horizontal, 6)
                     .padding(.vertical, 1)
                     .background(Capsule().fill(Color.secondary.opacity(0.15)))
                 Spacer()
                 if let accessory { accessory }
             }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 6)
+            .padding(.horizontal, 14)
+            .padding(.vertical, 11)
 
             Divider()
 
             content()
+
+            Divider()
+
+            HStack(spacing: 5) {
+                Image(systemName: "info.circle")
+                    .font(.system(size: 10))
+                Text(hint)
+                    .font(.caption2)
+                Spacer()
+            }
+            .foregroundColor(.secondary)
+            .padding(.horizontal, 14)
+            .padding(.vertical, 9)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     private var addButton: some View {
         Button(action: addCustomApp) {
-            Image(systemName: "plus")
-                .font(.system(size: 12, weight: .semibold))
+            Image(systemName: "plus.circle.fill")
+                .font(.system(size: 15))
+                .foregroundColor(.accentColor)
         }
         .buttonStyle(.borderless)
         .help("添加应用")
@@ -150,7 +199,7 @@ struct SettingsView: View {
         VStack {
             Spacer()
             Text(text)
-                .font(.caption)
+                .font(.callout)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
             Spacer()
@@ -158,32 +207,18 @@ struct SettingsView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
-    // MARK: - Footer
-
-    private var footer: some View {
-        HStack(spacing: 6) {
-            Image(systemName: "info.circle")
-                .foregroundColor(.secondary)
-            Text("前 10 个程序坞应用已自动绑定 ⌃1…⌃0；点快捷键栏可改键，红色提示表示与系统或其他程序冲突")
-                .font(.caption)
-                .foregroundColor(.secondary)
-            Spacer()
-            Button {
-                DonationWindowController.shared.show()
-            } label: {
-                Label("支持作者", systemImage: "cup.and.saucer")
-                    .font(.caption)
-            }
-            .buttonStyle(.borderless)
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
-    }
-
     // MARK: - Data
 
     private func loadSystemShortcuts() {
         systemShortcuts = SystemShortcutReader.readEnabled()
             .sorted { $0.name < $1.name }
+    }
+
+    private static func appIconImage() -> NSImage? {
+        if let url = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
+           let img = NSImage(contentsOf: url) {
+            return img
+        }
+        return NSApp.applicationIconImage
     }
 }

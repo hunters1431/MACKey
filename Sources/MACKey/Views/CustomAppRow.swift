@@ -21,7 +21,7 @@ struct CustomAppRow: View {
                 isRecording: $isRecording,
                 entryID: entry.id
             )
-            .frame(width: 120, height: 22)
+            .frame(width: 136, height: 24)
 
             Button {
                 SettingsStore.shared.removeCustomEntry(id: entry.id)
@@ -32,7 +32,7 @@ struct CustomAppRow: View {
             .buttonStyle(.borderless)
             .help("从列表移除")
         }
-        .padding(.vertical, 5)
+        .padding(.vertical, 7)
     }
 
     @ViewBuilder

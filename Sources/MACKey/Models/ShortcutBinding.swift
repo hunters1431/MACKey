@@ -13,7 +13,7 @@ struct ShortcutBinding: Codable, Equatable {
         if flags.contains(.shift)   { parts.append("⇧") }
         if flags.contains(.command) { parts.append("⌘") }
         parts.append(Self.keyCodeName(keyCode))
-        return parts.joined(separator: "+")
+        return parts.joined(separator: " + ")
     }
 
     static func keyCodeName(_ code: UInt32) -> String {

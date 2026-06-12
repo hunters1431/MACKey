@@ -17,11 +17,11 @@ struct AppRowView: View {
                 isRecording: $isRecording,
                 entryID: entry.id
             )
-            .frame(width: 110, height: 22)
+            .frame(width: 136, height: 24)
 
             clearButton
         }
-        .padding(.vertical, 5)
+        .padding(.vertical, 7)
     }
 
     @ViewBuilder
