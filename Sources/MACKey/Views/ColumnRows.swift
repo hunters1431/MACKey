@@ -9,16 +9,16 @@ struct ShortcutChip: View {
 
     var body: some View {
         Text(text)
-            .font(.system(size: 11.5, weight: .medium, design: .monospaced))
+            .font(.system(size: 13.5, weight: .semibold, design: .monospaced))
             .foregroundColor(.primary)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 3)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 4)
             .background(
                 RoundedRectangle(cornerRadius: 6)
-                    .fill(Color.secondary.opacity(0.10))
+                    .fill(Color.secondary.opacity(0.12))
                     .overlay(
                         RoundedRectangle(cornerRadius: 6)
-                            .stroke(Color.secondary.opacity(0.22), lineWidth: 0.5)
+                            .stroke(Color.secondary.opacity(0.25), lineWidth: 0.5)
                     )
             )
             .fixedSize()
