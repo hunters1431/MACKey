@@ -1,10 +1,12 @@
-# MACKey
+<p align="center">
+  <img src="docs/icon.png" width="120" alt="MACKey">
+</p>
 
-> 给程序坞里的应用一键绑定全局快捷键，秒速启动 / 切换 —— macOS 上的轻量 Snap 替代品。
+<h1 align="center">MACKey</h1>
+
+<p align="center">给程序坞里的应用一键绑定全局快捷键，秒速启动 / 切换 —— macOS 上的轻量 Snap 替代品。</p>
 
 MACKey 是一个常驻菜单栏的小工具。它读取你「程序坞（Dock）」里的应用，自动为**前 10 个**绑定 `⌃1`…`⌃0`，按下即可启动或切换到对应 App。同时它能列出 macOS 系统自带的全局快捷键，帮你避开冲突。
-
-![三列设置界面](docs/screenshot.png)
 
 ## 功能
 
@@ -49,7 +51,10 @@ swift run            # 直接运行（调试）
 
 ## 支持作者
 
-如果这个小工具帮到了你，欢迎请我喝杯咖啡 ☕ —— 见下方「捐赠」。
+如果这个小工具帮到了你，欢迎请我喝杯咖啡 ☕：
+
+- 国内：打开 App 菜单「☕ 支持作者…」扫码（微信 / 支付宝）
+- 国外：[Ko-fi](https://ko-fi.com/hunters1431) · [PayPal](https://paypal.me/hunters1431)
 
 ## License
 

@@ -40,10 +40,6 @@ final class ShortcutManager {
         hotKeys[entry.id] = hotKey
     }
 
-    func unregister(id: UUID) {
-        hotKeys.removeValue(forKey: id)
-    }
-
     // MARK: Conflict Detection
 
     /// Check whether a binding conflicts with our own entries or a system/third-party registration.

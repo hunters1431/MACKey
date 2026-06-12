@@ -1,12 +1,14 @@
-# MACKey
+<p align="center">
+  <img src="docs/icon.png" width="120" alt="MACKey">
+</p>
 
-> Bind a global hotkey to any Dock app and launch / switch in a keystroke — a lightweight Snap alternative for macOS.
+<h1 align="center">MACKey</h1>
 
-[中文说明](README.md)
+<p align="center">Bind a global hotkey to any Dock app and launch / switch in a keystroke — a lightweight Snap alternative for macOS.</p>
+
+<p align="center"><a href="README.md">中文说明</a></p>
 
 MACKey lives in your menu bar. It reads your Dock and auto-assigns `⌃1`…`⌃0` to the **first 10** apps — press one to launch or switch to it. It also lists macOS's own global shortcuts so you can avoid conflicts.
-
-![Three-column settings](docs/screenshot.png)
 
 ## Features
 
@@ -49,7 +51,7 @@ Built with Swift + SwiftUI + AppKit; global hotkeys via [HotKey](https://github.
 
 ## Support
 
-If MACKey helps you, consider supporting development — see the "☕ Support" item in the menu, or [GitHub Sponsors](https://github.com/sponsors/yourID) / [Ko-fi](https://ko-fi.com/yourID).
+If MACKey helps you, consider supporting development — see the "☕ Support" item in the menu, or [Ko-fi](https://ko-fi.com/hunters1431) / [PayPal](https://paypal.me/hunters1431).
 
 ## License
 
