@@ -19,9 +19,7 @@ See macOS's built-in global shortcuts in one place — Spotlight, screenshots, M
 Bind **any** key combo to **any** app (not just Dock apps). Click +, pick an app, record `⌥ + 1`, `⌃ + ⇧ + K`, anything — it works globally, taking you straight to the apps you use most.
 
 ### 3️⃣ Dock shortcuts
-The first 10 Dock apps work **out of the box**, auto-bound to `⌃1`…`⌃0` for instant launch / switch — re-mappable anytime. Inspired by the classic Snap.
-
-> 💡 **Why MACKey**: Snap is a classic Intel-only app that was never rebuilt for Apple silicon. As Apple phases out support for Intel apps, Snap will eventually stop running — MACKey is built natively for Apple silicon to fill that gap.
+The first 10 Dock apps work **out of the box**, auto-bound to `⌃1`…`⌃0` for instant launch / switch — re-mappable anytime. Inspired by the classic Snap (a tribute — but as Rosetta 2 is retired, Intel (x86) apps will no longer run on Apple silicon (ARM); MACKey is native ARM, picking up the baton).
 
 ---
 
