@@ -67,8 +67,8 @@ struct DonationView: View {
             Image(nsImage: image)
                 .resizable()
                 .interpolation(.high)
-                .frame(width: 130, height: 130)
-                .background(Color.white)
+                .aspectRatio(contentMode: .fit)   // keep original proportions — no distortion
+                .frame(width: 150, height: 190)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             Text(label).font(.caption).foregroundColor(.secondary)
         }

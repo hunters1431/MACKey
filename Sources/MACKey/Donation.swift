@@ -11,8 +11,8 @@ enum DonationConfig {
     // 国外 / international
     static let githubSponsors = ""                              // 没开 GitHub Sponsors，留空
     static let koFi = "https://ko-fi.com/hunters1431"
-    // PayPal 邮箱收款（捐赠直链）
-    static let paypal = "https://www.paypal.com/donate/?business=hunterapple33@gmail.com&item_name=Support+MACKey&currency_code=USD"
+    // PayPal.me 收款链接
+    static let paypal = "https://paypal.me/hunters1431"
 
     struct Link: Identifiable {
         let id = UUID()
