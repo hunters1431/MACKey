@@ -1,0 +1,91 @@
+/* App */
+"app.subtitle" = "你的 macOS 快速鍵中心";
+"win.settings" = "MACKey — 快速鍵設定";
+"win.donate" = "支援 MACKey";
+
+/* Menu bar */
+"menu.settings" = "設定快速鍵…";
+"menu.refresh" = "從 Dock 更新應用程式清單";
+"menu.launch" = "登入時啟動";
+"menu.support" = "☕ 支援開發者…";
+"menu.feedback" = "💬 意見回饋…";
+"menu.quit" = "結束 MACKey";
+
+/* Top bar buttons */
+"btn.support" = "支援開發者";
+"btn.refresh" = "從 Dock 更新";
+
+/* Column titles */
+"col.system" = "系統快速鍵清單";
+"col.system.store" = "系統預設快速鍵";
+"col.custom" = "自訂應用程式快速鍵";
+"col.dock" = "依 Dock 順序";
+
+/* Column hints */
+"hint.system" = "讀取自系統設定，僅顯示已啟用項目";
+"hint.custom" = "點「+」新增任意應用程式，可綁定任意組合鍵";
+"hint.dock" = "前 10 個自動綁定 ⌃ 數字；點快速鍵欄位可更改";
+
+/* Empty states */
+"empty.system" = "未讀取到已啟用的系統快速鍵";
+"empty.custom" = "點右上「+」新增任意應用程式\n再錄製任意組合鍵";
+"empty.dock" = "未從 Dock 讀取到應用程式";
+
+/* Tooltips & panel */
+"tip.add" = "新增應用程式";
+"tip.remove" = "從清單移除";
+"panel.add" = "新增";
+"panel.msg" = "選擇要綁定快速鍵的應用程式";
+
+/* Recorder */
+"rec.recording" = "錄製中…  (Esc 取消)";
+"rec.empty" = "點擊設定";
+"rec.conflict.app" = "⚠ 已被 %@ 使用";
+"rec.conflict.system" = "⚠ 系統快速鍵「%@」";
+"rec.conflict.other" = "⚠ 已被其他 App 佔用";
+
+/* Donation */
+"donate.title" = "支援 MACKey 開發";
+"donate.subtitle" = "如果喜歡，請我喝杯咖啡 ☕";
+"donate.wechat" = "微信";
+"donate.alipay" = "支付寶";
+"donate.qrPlaceholder" = "放入 wechat_qr.png /\nalipay_qr.png 後顯示";
+"donate.thanks" = "感謝你的支持 · Thank you";
+
+/* Column ① extras */
+"freq.sortNote" = "依使用頻率排序";
+"sys.openSettings" = "在系統設定中檢視全部";
+
+/* System shortcut names */
+"sys.appswitch" = "切換應用程式";
+"sys.windowcycle" = "切換同一應用程式的視窗";
+"sys.lockscreen" = "鎖定螢幕";
+"sys.forcequit" = "強制結束";
+"sys.dockhide" = "切換 Dock 隱藏";
+"sys.input.prev" = "切換到上一個輸入法";
+"sys.input.next" = "切換到下一個輸入法";
+"sys.spotlight" = "Spotlight 搜尋";
+"sys.spotlight.finder" = "Spotlight 搜尋器視窗";
+"sys.screenshot.file" = "截圖並儲存為檔案";
+"sys.screenshot.clip" = "截圖並複製到剪貼簿";
+"sys.screenshot.area.file" = "區域截圖並儲存為檔案";
+"sys.screenshot.area.clip" = "區域截圖並複製";
+"sys.screenshot.toolbar" = "截圖與錄製螢幕工具列";
+"sys.mission" = "任務控制";
+"sys.appwindows" = "應用程式視窗";
+"sys.showdesktop" = "顯示桌面";
+"sys.space.left" = "移到左側的空間";
+"sys.space.right" = "移到右側的空間";
+"sys.menubar" = "聚焦選單列";
+"sys.dock" = "聚焦 Dock";
+"sys.windowtile" = "聚焦上一個視窗分割";
+"sys.desktop1" = "切換到桌面 1";
+"sys.desktop2" = "切換到桌面 2";
+"sys.desktop3" = "切換到桌面 3";
+"sys.launchpad" = "Launchpad";
+"sys.notification" = "通知中心";
+"sys.dictation" = "聽寫";
+"sys.dnd" = "勿擾模式";
+"sys.spotlightFocus" = "聚焦";
+"sys.quicknote" = "快速備忘錄";
+"sys.unknown" = "系統快速鍵 #%d";

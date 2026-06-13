@@ -1,0 +1,91 @@
+/* App */
+"app.subtitle" = "macOS キーボードショートカットハブ";
+"win.settings" = "MACKey — ショートカット設定";
+"win.donate" = "MACKey を支援する";
+
+/* Menu bar */
+"menu.settings" = "ショートカットを設定…";
+"menu.refresh" = "Dock からアプリを更新";
+"menu.launch" = "ログイン時に起動";
+"menu.support" = "☕ 開発者を支援…";
+"menu.feedback" = "💬 フィードバックを送る…";
+"menu.quit" = "MACKey を終了";
+
+/* Top bar buttons */
+"btn.support" = "支援する";
+"btn.refresh" = "Dock から更新";
+
+/* Column titles */
+"col.system" = "システムショートカット";
+"col.system.store" = "デフォルトのショートカット";
+"col.custom" = "アプリショートカット";
+"col.dock" = "Dock の順序";
+
+/* Column hints */
+"hint.system" = "システム設定から読み込み、有効なもののみ表示";
+"hint.custom" = "「+」でアプリを追加し、任意のキーを割り当て";
+"hint.dock" = "先頭 10 個は ⌃ 数字に自動割り当て；クリックして変更可";
+
+/* Empty states */
+"empty.system" = "有効なシステムショートカットが見つかりません";
+"empty.custom" = "右上の「+」でアプリを追加し\nショートカットを録音してください";
+"empty.dock" = "Dock にアプリが見つかりません";
+
+/* Tooltips & panel */
+"tip.add" = "アプリを追加";
+"tip.remove" = "リストから削除";
+"panel.add" = "追加";
+"panel.msg" = "ショートカットを割り当てるアプリを選択";
+
+/* Recorder */
+"rec.recording" = "録音中…  (Esc でキャンセル)";
+"rec.empty" = "クリックして設定";
+"rec.conflict.app" = "⚠ %@ が使用中";
+"rec.conflict.system" = "⚠ システムショートカット「%@」";
+"rec.conflict.other" = "⚠ 他のアプリが使用中";
+
+/* Donation */
+"donate.title" = "MACKey の開発を支援";
+"donate.subtitle" = "気に入っていただけたら、コーヒーを一杯 ☕";
+"donate.wechat" = "WeChat";
+"donate.alipay" = "Alipay";
+"donate.qrPlaceholder" = "wechat_qr.png /\nalipay_qr.png を追加すると表示されます";
+"donate.thanks" = "ご支援ありがとうございます";
+
+/* Column ① extras */
+"freq.sortNote" = "使用頻度順";
+"sys.openSettings" = "システム設定ですべてを表示";
+
+/* System shortcut names */
+"sys.appswitch" = "アプリを切り替え";
+"sys.windowcycle" = "同じアプリのウィンドウを切り替え";
+"sys.lockscreen" = "画面をロック";
+"sys.forcequit" = "強制終了";
+"sys.dockhide" = "Dock の表示／非表示を切り替え";
+"sys.input.prev" = "前の入力ソースに切り替え";
+"sys.input.next" = "次の入力ソースに切り替え";
+"sys.spotlight" = "Spotlight 検索";
+"sys.spotlight.finder" = "Spotlight Finder ウィンドウ";
+"sys.screenshot.file" = "スクリーンショットをファイルに保存";
+"sys.screenshot.clip" = "スクリーンショットをクリップボードにコピー";
+"sys.screenshot.area.file" = "選択範囲をファイルに保存";
+"sys.screenshot.area.clip" = "選択範囲をクリップボードにコピー";
+"sys.screenshot.toolbar" = "スクリーンショットと収録ツールバー";
+"sys.mission" = "Mission Control";
+"sys.appwindows" = "アプリケーションウィンドウ";
+"sys.showdesktop" = "デスクトップを表示";
+"sys.space.left" = "左の Space に移動";
+"sys.space.right" = "右の Space に移動";
+"sys.menubar" = "メニューバーにフォーカス";
+"sys.dock" = "Dock にフォーカス";
+"sys.windowtile" = "前のウィンドウタイルにフォーカス";
+"sys.desktop1" = "デスクトップ 1 に切り替え";
+"sys.desktop2" = "デスクトップ 2 に切り替え";
+"sys.desktop3" = "デスクトップ 3 に切り替え";
+"sys.launchpad" = "Launchpad";
+"sys.notification" = "通知センター";
+"sys.dictation" = "音声入力";
+"sys.dnd" = "おやすみモード";
+"sys.spotlightFocus" = "フォーカス";
+"sys.quicknote" = "クイックメモ";
+"sys.unknown" = "システムショートカット #%d";

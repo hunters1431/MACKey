@@ -1,0 +1,91 @@
+/* App */
+"app.subtitle" = "Dein macOS-Tastaturkürzel-Hub";
+"win.settings" = "MACKey — Tastaturkürzel";
+"win.donate" = "MACKey unterstützen";
+
+/* Menu bar */
+"menu.settings" = "Tastaturkürzel konfigurieren…";
+"menu.refresh" = "Apps aus dem Dock aktualisieren";
+"menu.launch" = "Bei Anmeldung starten";
+"menu.support" = "☕ Entwickler unterstützen…";
+"menu.feedback" = "💬 Feedback senden…";
+"menu.quit" = "MACKey beenden";
+
+/* Top bar buttons */
+"btn.support" = "Unterstützen";
+"btn.refresh" = "Dock aktualisieren";
+
+/* Column titles */
+"col.system" = "Systemkürzel";
+"col.system.store" = "Standard-Systemkürzel";
+"col.custom" = "App-Kürzel";
+"col.dock" = "Nach Dock-Reihenfolge";
+
+/* Column hints */
+"hint.system" = "Aus Systemeinstellungen gelesen; nur aktivierte";
+"hint.custom" = "„+" drücken, App hinzufügen und Kürzel festlegen";
+"hint.dock" = "Erste 10 automatisch an ⌃ Ziffern gebunden; klicken zum Ändern";
+
+/* Empty states */
+"empty.system" = "Keine aktiven Systemkürzel gefunden";
+"empty.custom" = "„+" oben rechts drücken, App hinzufügen\nund Kürzel aufzeichnen";
+"empty.dock" = "Keine Apps im Dock gefunden";
+
+/* Tooltips & panel */
+"tip.add" = "App hinzufügen";
+"tip.remove" = "Aus Liste entfernen";
+"panel.add" = "Hinzufügen";
+"panel.msg" = "App für Tastaturkürzel auswählen";
+
+/* Recorder */
+"rec.recording" = "Aufnahme…  (Esc zum Abbrechen)";
+"rec.empty" = "Klicken zum Festlegen";
+"rec.conflict.app" = "⚠ Belegt von %@";
+"rec.conflict.system" = "⚠ Systemkürzel „%@"";
+"rec.conflict.other" = "⚠ Von anderer App belegt";
+
+/* Donation */
+"donate.title" = "MACKey-Entwicklung unterstützen";
+"donate.subtitle" = "Wenn dir MACKey gefällt, spendier mir einen Kaffee ☕";
+"donate.wechat" = "WeChat";
+"donate.alipay" = "Alipay";
+"donate.qrPlaceholder" = "wechat_qr.png /\nalipay_qr.png hinzufügen";
+"donate.thanks" = "Danke für deine Unterstützung";
+
+/* Column ① extras */
+"freq.sortNote" = "Nach Nutzungshäufigkeit sortiert";
+"sys.openSettings" = "Alle in Systemeinstellungen anzeigen";
+
+/* System shortcut names */
+"sys.appswitch" = "Apps wechseln";
+"sys.windowcycle" = "Fenster derselben App wechseln";
+"sys.lockscreen" = "Bildschirm sperren";
+"sys.forcequit" = "Sofort beenden";
+"sys.dockhide" = "Dock ein-/ausblenden";
+"sys.input.prev" = "Zur vorherigen Eingabequelle wechseln";
+"sys.input.next" = "Zur nächsten Eingabequelle wechseln";
+"sys.spotlight" = "Spotlight-Suche";
+"sys.spotlight.finder" = "Spotlight-Finder-Fenster";
+"sys.screenshot.file" = "Screenshot als Datei speichern";
+"sys.screenshot.clip" = "Screenshot in Zwischenablage kopieren";
+"sys.screenshot.area.file" = "Auswahl als Datei speichern";
+"sys.screenshot.area.clip" = "Auswahl in Zwischenablage kopieren";
+"sys.screenshot.toolbar" = "Screenshot- und Aufnahme-Symbolleiste";
+"sys.mission" = "Mission Control";
+"sys.appwindows" = "App-Fenster";
+"sys.showdesktop" = "Schreibtisch anzeigen";
+"sys.space.left" = "Zum linken Space wechseln";
+"sys.space.right" = "Zum rechten Space wechseln";
+"sys.menubar" = "Menüleiste fokussieren";
+"sys.dock" = "Dock fokussieren";
+"sys.windowtile" = "Vorherige Fensterkachel fokussieren";
+"sys.desktop1" = "Zu Schreibtisch 1 wechseln";
+"sys.desktop2" = "Zu Schreibtisch 2 wechseln";
+"sys.desktop3" = "Zu Schreibtisch 3 wechseln";
+"sys.launchpad" = "Launchpad";
+"sys.notification" = "Mitteilungszentrale";
+"sys.dictation" = "Diktat";
+"sys.dnd" = "Nicht stören";
+"sys.spotlightFocus" = "Fokus";
+"sys.quicknote" = "Schnellnotiz";
+"sys.unknown" = "Systemkürzel #%d";
