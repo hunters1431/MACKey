@@ -17,6 +17,7 @@
 
 /* Column titles */
 "col.system" = "System Shortcuts";
+"col.system.store" = "Default System Shortcuts";
 "col.custom" = "App Shortcuts";
 "col.dock" = "By Dock Order";
 

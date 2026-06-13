@@ -73,10 +73,18 @@ struct SettingsView: View {
 
     // MARK: - Three columns
 
+    private var systemColumnTitle: String {
+        #if APPSTORE
+        return L("col.system.store")
+        #else
+        return L("col.system")
+        #endif
+    }
+
     private var columns: some View {
         HStack(spacing: 0) {
             column(
-                title: L("col.system"), systemImage: "command",
+                title: systemColumnTitle, systemImage: "command",
                 count: systemShortcuts.count,
                 hint: L("hint.system"),
                 footer: AnyView(systemSettingsLink)

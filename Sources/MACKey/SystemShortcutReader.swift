@@ -108,8 +108,16 @@ enum SystemShortcutReader {
         .init(rank: 20, nameKey: "sys.desktop1",            icon: "rectangle.split.3x1",    symbolicID: 118, keyCode: 18,  modifierFlags: control),
     ]
 
-    /// Column ① content: the curated 20, with symbolic items reflecting user customizations.
+    /// Column ① content: the curated 20.
+    /// App Store build uses factory defaults only (no plist access required by sandbox).
+    /// GitHub build overlays user customizations from symbolichotkeys.plist.
     static func curatedList() -> [SystemShortcut] {
+        #if APPSTORE
+        return curated.map { item in
+            SystemShortcut(id: item.rank, name: L(item.nameKey), icon: item.icon,
+                           keyCode: item.keyCode, modifierFlags: item.modifierFlags)
+        }
+        #else
         let plist = loadPlistHotkeys()
         return curated.map { item in
             var kc = item.keyCode
@@ -127,6 +135,7 @@ enum SystemShortcutReader {
             return SystemShortcut(id: item.rank, name: L(item.nameKey), icon: item.icon,
                                   keyCode: kc, modifierFlags: mf)
         }
+        #endif
     }
 
     /// Effective enabled system shortcuts: built-in defaults overlaid with the user's plist.

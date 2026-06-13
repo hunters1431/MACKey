@@ -17,6 +17,7 @@
 
 /* Column titles */
 "col.system" = "系统快捷键清单";
+"col.system.store" = "系统默认快捷方式";
 "col.custom" = "定向程序快捷键";
 "col.dock" = "按程序坞排序";
 
