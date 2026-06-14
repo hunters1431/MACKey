@@ -217,7 +217,9 @@ let langs: [Lang] = [
 ]
 
 let fm = FileManager.default
-try? fm.removeItem(atPath: "marketing")
+// Only clear the generated subdirs — preserve hand-made assets like demo.gif/mp4.
+try? fm.removeItem(atPath: "marketing/three-col")
+try? fm.removeItem(atPath: "marketing/privacy")
 
 func write(_ data: Data, _ path: String) {
     let dir = (path as NSString).deletingLastPathComponent
