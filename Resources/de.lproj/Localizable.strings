@@ -19,16 +19,24 @@
 "col.system" = "Systemkürzel";
 "col.system.store" = "Standard-Systemkürzel";
 "col.custom" = "App-Kürzel";
+"note.reorder" = "(zum Sortieren ziehen)";
 "col.dock" = "Nach Dock-Reihenfolge";
+
+/* Theme accent names */
+"theme.teal" = "Blaugrün";
+"theme.amber" = "Bernstein";
+"theme.coral" = "Koralle";
+"theme.indigo" = "Indigo";
+"theme.graphite" = "Graphit";
 
 /* Column hints */
 "hint.system" = "Aus Systemeinstellungen gelesen; nur aktivierte";
-"hint.custom" = "„+" drücken, App hinzufügen und Kürzel festlegen";
-"hint.dock" = "Erste 10 automatisch an ⌃ Ziffern gebunden; klicken zum Ändern";
+"hint.custom" = "Auf + tippen: App hinzufügen, Kürzel festlegen";
+"hint.dock" = "Erste 10 nach Dock-Reihenfolge an ⌃ Ziffern; nach Umsortieren oben aktualisieren";
 
 /* Empty states */
 "empty.system" = "Keine aktiven Systemkürzel gefunden";
-"empty.custom" = "„+" oben rechts drücken, App hinzufügen\nund Kürzel aufzeichnen";
+"empty.custom" = "Oben rechts auf + tippen, App hinzufügen\nund Kürzel aufzeichnen";
 "empty.dock" = "Keine Apps im Dock gefunden";
 
 /* Tooltips & panel */
@@ -41,7 +49,7 @@
 "rec.recording" = "Aufnahme…  (Esc zum Abbrechen)";
 "rec.empty" = "Klicken zum Festlegen";
 "rec.conflict.app" = "⚠ Belegt von %@";
-"rec.conflict.system" = "⚠ Systemkürzel „%@"";
+"rec.conflict.system" = "⚠ Systemkürzel: %@";
 "rec.conflict.other" = "⚠ Von anderer App belegt";
 
 /* Donation */

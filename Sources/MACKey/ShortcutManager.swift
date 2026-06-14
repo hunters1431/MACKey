@@ -106,19 +106,17 @@ final class ShortcutManager {
     }
 
     private func activateOrLaunch(entry: AppEntry) {
-        if let running = NSWorkspace.shared.runningApplications.first(where: {
-            $0.bundleIdentifier == entry.bundleIdentifier
-        }) {
-            running.activate(options: [.activateAllWindows])
-        } else {
-            let rawPath = entry.appPath
-            let path = rawPath.hasPrefix("file://")
-                ? (URL(string: rawPath)?.path ?? rawPath)
-                : rawPath
-            NSWorkspace.shared.openApplication(
-                at: URL(fileURLWithPath: path),
-                configuration: .init()
-            ) { _, _ in }
-        }
+        let rawPath = entry.appPath
+        let path = rawPath.hasPrefix("file://")
+            ? (URL(string: rawPath)?.path ?? rawPath)
+            : rawPath
+        // Always go through Launch Services: it both launches a not-running app
+        // and brings an already-running one to the front. NSRunningApplication.activate
+        // is unreliable from a background agent on macOS 14+ (cooperative activation),
+        // which is why already-running apps failed to come forward.
+        let config = NSWorkspace.OpenConfiguration()
+        config.activates = true
+        NSWorkspace.shared.openApplication(at: URL(fileURLWithPath: path), configuration: config) { _, _ in }
+        ReviewPrompt.recordActivation()
     }
 }

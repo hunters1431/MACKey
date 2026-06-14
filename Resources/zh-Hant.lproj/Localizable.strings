@@ -19,12 +19,20 @@
 "col.system" = "系統快速鍵清單";
 "col.system.store" = "系統預設快速鍵";
 "col.custom" = "自訂應用程式快速鍵";
+"note.reorder" = "（拖動排序）";
 "col.dock" = "依 Dock 順序";
+
+/* Theme accent names */
+"theme.teal" = "墨綠";
+"theme.amber" = "琥珀金";
+"theme.coral" = "珊瑚橙";
+"theme.indigo" = "靛藍";
+"theme.graphite" = "石墨";
 
 /* Column hints */
 "hint.system" = "讀取自系統設定，僅顯示已啟用項目";
 "hint.custom" = "點「+」新增任意應用程式，可綁定任意組合鍵";
-"hint.dock" = "前 10 個自動綁定 ⌃ 數字；點快速鍵欄位可更改";
+"hint.dock" = "前 10 個依 Dock 順序綁 ⌃ 數字；調整 Dock 後點上方「從 Dock 更新」";
 
 /* Empty states */
 "empty.system" = "未讀取到已啟用的系統快速鍵";

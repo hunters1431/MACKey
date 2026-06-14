@@ -31,7 +31,10 @@
 ## 截图
 
 <p align="center">
-  <img src="docs/screenshot_zh.jpg" alt="MACKey 中文界面" width="800">
+  <img src="marketing/three-col/teal/zh-Hans.png" alt="MACKey — 一个面板掌控全机快捷键" width="820">
+</p>
+<p align="center">
+  <img src="marketing/privacy/zh-Hans.png" alt="MACKey 纯本地运行" width="820">
 </p>
 
 ## 安装

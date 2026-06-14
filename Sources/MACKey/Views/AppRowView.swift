@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AppRowView: View {
     let entry: AppEntry
+    @ObservedObject private var theme = Theme.shared   // re-render pills on theme change
     @State private var isRecording = false
 
     var body: some View {

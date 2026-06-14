@@ -5,7 +5,9 @@ struct ShortcutBinding: Codable, Equatable {
     let keyCode: UInt32
     let modifierFlags: UInt  // NSEvent.ModifierFlags.rawValue
 
-    var displayString: String {
+    /// Individual key tokens in canonical order, e.g. ["⌃", "⌥", "C"].
+    /// Used to render each key as its own keycap.
+    var displayTokens: [String] {
         let flags = NSEvent.ModifierFlags(rawValue: modifierFlags)
         var parts: [String] = []
         if flags.contains(.control) { parts.append("⌃") }
@@ -13,8 +15,10 @@ struct ShortcutBinding: Codable, Equatable {
         if flags.contains(.shift)   { parts.append("⇧") }
         if flags.contains(.command) { parts.append("⌘") }
         parts.append(Self.keyCodeName(keyCode))
-        return parts.joined(separator: " + ")
+        return parts
     }
+
+    var displayString: String { displayTokens.joined(separator: " + ") }
 
     static func keyCodeName(_ code: UInt32) -> String {
         let map: [UInt32: String] = [

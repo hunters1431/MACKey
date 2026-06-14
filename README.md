@@ -28,10 +28,13 @@
 
 Menu-bar only · Launch at login · English & Chinese · Free & open source
 
-## Screenshot
+## Screenshots
 
 <p align="center">
-  <img src="docs/screenshot_en.jpg" alt="MACKey English UI" width="800">
+  <img src="marketing/three-col/teal/en.png" alt="MACKey — every shortcut in one panel" width="820">
+</p>
+<p align="center">
+  <img src="marketing/privacy/en.png" alt="MACKey runs entirely on your Mac" width="820">
 </p>
 
 ## Install

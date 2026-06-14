@@ -19,12 +19,20 @@
 "col.system" = "システムショートカット";
 "col.system.store" = "デフォルトのショートカット";
 "col.custom" = "アプリショートカット";
+"note.reorder" = "（ドラッグで並べ替え）";
 "col.dock" = "Dock の順序";
+
+/* Theme accent names */
+"theme.teal" = "ティール";
+"theme.amber" = "アンバー";
+"theme.coral" = "コーラル";
+"theme.indigo" = "インディゴ";
+"theme.graphite" = "グラファイト";
 
 /* Column hints */
 "hint.system" = "システム設定から読み込み、有効なもののみ表示";
 "hint.custom" = "「+」でアプリを追加し、任意のキーを割り当て";
-"hint.dock" = "先頭 10 個は ⌃ 数字に自動割り当て；クリックして変更可";
+"hint.dock" = "先頭 10 個を Dock 順で ⌃ 数字に割り当て；並べ替え後は上の更新をクリック";
 
 /* Empty states */
 "empty.system" = "有効なシステムショートカットが見つかりません";

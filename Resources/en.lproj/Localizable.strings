@@ -19,12 +19,20 @@
 "col.system" = "System Shortcuts";
 "col.system.store" = "Default System Shortcuts";
 "col.custom" = "App Shortcuts";
+"note.reorder" = "(drag to reorder)";
 "col.dock" = "By Dock Order";
+
+/* Theme accent names */
+"theme.teal" = "Teal";
+"theme.amber" = "Amber";
+"theme.coral" = "Coral";
+"theme.indigo" = "Indigo";
+"theme.graphite" = "Graphite";
 
 /* Column hints */
 "hint.system" = "Read from System Settings; enabled only";
 "hint.custom" = "Click + to add any app with any combo";
-"hint.dock" = "First 10 auto-bound to ⌃ digits; click to rebind";
+"hint.dock" = "First 10 follow Dock order on ⌃ digits; reorder the Dock, then click Refresh";
 
 /* Empty states */
 "empty.system" = "No enabled system shortcuts found";

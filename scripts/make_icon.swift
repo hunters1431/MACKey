@@ -1,13 +1,15 @@
-// Generates MACKey.iconset PNGs with a beautified "⌘K" glyph on a rounded
-// gradient squircle. Run:  swift scripts/make_icon.swift
-// Then:  iconutil -c icns MACKey.iconset -o Resources/AppIcon.icns
+// Generates MACKey.iconset PNGs: a teal squircle tile with a large white ⌘.
+// Teal (#0F6E56) is the locked brand color (the in-app theme can recolor the
+// UI, but the static app icon stays teal). Run:
+//   swift scripts/make_icon.swift
+// Then: iconutil -c icns MACKey.iconset -o Resources/AppIcon.icns
 import AppKit
 
 let outDir = "MACKey.iconset"
 try? FileManager.default.createDirectory(atPath: outDir, withIntermediateDirectories: true)
 
 func roundedFont(_ size: CGFloat) -> NSFont {
-    let base = NSFont.systemFont(ofSize: size, weight: .bold)
+    let base = NSFont.systemFont(ofSize: size, weight: .semibold)
     if let d = base.fontDescriptor.withDesign(.rounded) {
         return NSFont(descriptor: d, size: size) ?? base
     }
@@ -32,21 +34,19 @@ func render(_ px: Int) -> NSBitmapImageRep {
                       cornerWidth: radius, cornerHeight: radius, transform: nil)
     ctx.addPath(path); ctx.clip()
 
-    // Diagonal gradient: sky blue → indigo
+    // Teal tile with a subtle vertical lift (top a touch lighter for depth)
     let cs = CGColorSpaceCreateDeviceRGB()
-    let colors = [
-        NSColor(srgbRed: 0.20, green: 0.74, blue: 0.98, alpha: 1).cgColor,
-        NSColor(srgbRed: 0.15, green: 0.39, blue: 0.92, alpha: 1).cgColor,
-    ] as CFArray
-    let grad = CGGradient(colorsSpace: cs, colors: colors, locations: [0, 1])!
-    ctx.drawLinearGradient(grad, start: CGPoint(x: 0, y: s), end: CGPoint(x: s, y: 0), options: [])
+    let top = NSColor(srgbRed: 0x16 / 255, green: 0x84 / 255, blue: 0x68 / 255, alpha: 1).cgColor
+    let bottom = NSColor(srgbRed: 0x0C / 255, green: 0x5A / 255, blue: 0x46 / 255, alpha: 1).cgColor
+    let grad = CGGradient(colorsSpace: cs, colors: [top, bottom] as CFArray, locations: [0, 1])!
+    ctx.drawLinearGradient(grad, start: CGPoint(x: 0, y: s), end: CGPoint(x: 0, y: 0), options: [])
 
-    // "⌘K" centered, white, rounded-bold
-    let fontSize = s * 0.52
+    // Large "⌘" centered, white, rounded-semibold
+    let fontSize = s * 0.56
     let para = NSMutableParagraphStyle(); para.alignment = .center
     let shadow = NSShadow()
-    shadow.shadowColor = NSColor(white: 0, alpha: 0.18)
-    shadow.shadowBlurRadius = s * 0.02
+    shadow.shadowColor = NSColor(white: 0, alpha: 0.20)
+    shadow.shadowBlurRadius = s * 0.018
     shadow.shadowOffset = NSSize(width: 0, height: -s * 0.012)
     let attrs: [NSAttributedString.Key: Any] = [
         .font: roundedFont(fontSize),
@@ -54,7 +54,7 @@ func render(_ px: Int) -> NSBitmapImageRep {
         .paragraphStyle: para,
         .shadow: shadow,
     ]
-    let str = NSAttributedString(string: "⌘K", attributes: attrs)
+    let str = NSAttributedString(string: "⌘", attributes: attrs)
     let tsize = str.size()
     str.draw(in: CGRect(x: (s - tsize.width) / 2, y: (s - tsize.height) / 2,
                         width: tsize.width, height: tsize.height))

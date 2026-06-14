@@ -19,12 +19,20 @@
 "col.system" = "系统快捷键清单";
 "col.system.store" = "系统默认快捷键";
 "col.custom" = "定向程序快捷键";
+"note.reorder" = "（拖动排序）";
 "col.dock" = "按程序坞排序";
+
+/* Theme accent names */
+"theme.teal" = "墨绿";
+"theme.amber" = "琥珀金";
+"theme.coral" = "珊瑚橙";
+"theme.indigo" = "靛蓝";
+"theme.graphite" = "石墨";
 
 /* Column hints */
 "hint.system" = "读自系统设置，仅显示已启用项";
 "hint.custom" = "点「+」添加任意程序，可绑任意组合键";
-"hint.dock" = "前 10 个自动绑定 ⌃ 数字；点快捷键栏可改键";
+"hint.dock" = "前 10 个按 Dock 顺序绑 ⌃ 数字；调整 Dock 后点上方「从 Dock 刷新」";
 
 /* Empty states */
 "empty.system" = "未读取到已启用的系统快捷键";

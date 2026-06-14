@@ -4,6 +4,7 @@ import SwiftUI
 /// custom shortcut and a remove button.
 struct CustomAppRow: View {
     let entry: AppEntry
+    @ObservedObject private var theme = Theme.shared   // re-render pill on theme change
     @State private var isRecording = false
 
     var body: some View {

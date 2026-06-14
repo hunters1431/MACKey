@@ -1,27 +1,37 @@
 import SwiftUI
 
-// MARK: - Shortcut chip
+// MARK: - Keycaps
 
-/// A monospaced bordered pill rendering a key combination, e.g. "⌘ + Space".
-/// Styled to match the recorder pills in columns ②③ for a consistent look.
-struct ShortcutChip: View {
-    let text: String
+/// Renders a key combination as separate keycaps (no "+"), e.g. ⌘ Space.
+/// `accent` non-nil → filled accent keycaps with white legend (columns ②③);
+/// nil → neutral outlined keycaps (column ①, read-only reference).
+struct KeyCapsView: View {
+    let tokens: [String]
+    var accent: Color? = nil
 
     var body: some View {
-        Text(text)
-            .font(.system(size: 13.5, weight: .semibold, design: .monospaced))
-            .foregroundColor(.primary)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 4)
-            .background(
-                RoundedRectangle(cornerRadius: 6)
-                    .fill(Color.secondary.opacity(0.12))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 6)
-                            .stroke(Color.secondary.opacity(0.25), lineWidth: 0.5)
-                    )
-            )
-            .fixedSize()
+        HStack(spacing: 4) {
+            ForEach(Array(tokens.enumerated()), id: \.offset) { _, token in
+                Text(token)
+                    .font(.system(size: 12, weight: .semibold, design: .monospaced))
+                    .foregroundColor(accent == nil ? .primary : .white)
+                    .padding(.horizontal, 6)
+                    .frame(minWidth: 20, minHeight: 20)
+                    .background(keycapBackground)
+            }
+        }
+        .fixedSize()
+    }
+
+    @ViewBuilder
+    private var keycapBackground: some View {
+        if let accent {
+            RoundedRectangle(cornerRadius: 5).fill(accent)
+        } else {
+            RoundedRectangle(cornerRadius: 5)
+                .fill(Color.secondary.opacity(0.10))
+                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.secondary.opacity(0.25), lineWidth: 0.5))
+        }
     }
 }
 
@@ -41,7 +51,7 @@ struct SystemShortcutRow: View {
                 .lineLimit(1)
                 .truncationMode(.tail)
             Spacer(minLength: 8)
-            ShortcutChip(text: item.displayString)
+            KeyCapsView(tokens: item.displayTokens)
         }
         .padding(.vertical, 6)
     }

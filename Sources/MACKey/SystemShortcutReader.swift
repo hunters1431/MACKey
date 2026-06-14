@@ -13,6 +13,10 @@ struct SystemShortcut: Identifiable {
     var displayString: String {
         ShortcutBinding(keyCode: keyCode, modifierFlags: modifierFlags).displayString
     }
+
+    var displayTokens: [String] {
+        ShortcutBinding(keyCode: keyCode, modifierFlags: modifierFlags).displayTokens
+    }
 }
 
 // MARK: - Reader

@@ -49,13 +49,21 @@ final class SettingsStore: ObservableObject {
         reloadHotKeys()
     }
 
+    /// Re-read the Dock and renumber ⌃1…⌃0 strictly by the new position.
+    /// Unlike startup load (which preserves saved bindings), an explicit refresh
+    /// resyncs the column to the current Dock order, overwriting the first 10.
     func refreshFromDock() {
-        let dockApps = DockReader.readApps()
-        let existingByBundleID = Dictionary(entries.map { ($0.bundleIdentifier, $0) }) { first, _ in first }
-        entries = dockApps.map { existingByBundleID[$0.bundleIdentifier] ?? $0 }
-        assignDefaultShortcuts()
+        entries = DockReader.readApps()
+        reassignDockShortcuts()
         persist()
         reloadHotKeys()
+    }
+
+    private func reassignDockShortcuts() {
+        let control = NSEvent.ModifierFlags.control.rawValue
+        for i in entries.indices where i < Self.autoAssignCount {
+            entries[i].shortcut = ShortcutBinding(keyCode: Self.digitKeyCodes[i], modifierFlags: control)
+        }
     }
 
     // MARK: - Column ② (custom) mutations
@@ -88,6 +96,12 @@ final class SettingsStore: ObservableObject {
         customEntries.removeAll { $0.id == id }
         persist()
         reloadHotKeys()
+    }
+
+    /// Manual drag-to-reorder of column ② (order is cosmetic; bindings unchanged).
+    func moveCustomEntry(from source: IndexSet, to destination: Int) {
+        customEntries.move(fromOffsets: source, toOffset: destination)
+        persist()
     }
 
     // MARK: - Auto assignment (Snap-style ⌃1…⌃0 by Dock position)
