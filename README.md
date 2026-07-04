@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/icon.png" width="120" alt="MACKey">
+  <img src="docs/icon.png" width="120" alt="HotKey Hub">
 </p>
 
-<h1 align="center">MACKey</h1>
+<h1 align="center">HotKey Hub</h1>
 
 <p align="center">
   <a href="https://github.com/hunters1431/MACKey/releases"><img src="https://img.shields.io/github/v/release/hunters1431/MACKey?color=blue&label=release" alt="Latest Release"></a>
@@ -16,7 +16,7 @@
 
 <p align="center"><a href="README.zh.md">中文说明</a></p>
 
-## Why MACKey
+## Why HotKey Hub
 
 - 🚀 **Works out of the box** — your first 10 Dock apps are auto-bound to `⌃1`…`⌃0`; zero setup, instant switching
 - 🎯 **Bind anything** — any app × any key combo, global, one keystroke to your most-used apps
@@ -24,17 +24,17 @@
 - 🛡️ **Never collide** — live conflict detection while recording, named warnings like "taken by the system's Screenshot"
 - 🔒 **Private by design** — runs 100% locally; no network, no tracking, no data ever leaves your Mac
 
-> A tribute to the classic Snap. As Rosetta 2 retires, Intel apps will stop running on Apple silicon — MACKey is native ARM, picking up the baton.
+> A tribute to the classic Snap. As Rosetta 2 retires, Intel apps will stop running on Apple silicon — HotKey Hub is native ARM, picking up the baton.
 
 Menu-bar only · Launch at login · English & Chinese · Free & open source
 
 ## Screenshots
 
 <p align="center">
-  <img src="marketing/demo.gif" alt="MACKey in action" width="820">
+  <img src="marketing/demo.gif" alt="HotKey Hub in action" width="820">
 </p>
 <p align="center">
-  <img src="marketing/privacy/en.png" alt="MACKey runs entirely on your Mac" width="820">
+  <img src="marketing/privacy/en.png" alt="HotKey Hub runs entirely on your Mac" width="820">
 </p>
 
 ## Install
@@ -44,7 +44,7 @@ Menu-bar only · Launch at login · English & Chinese · Free & open source
 3. First launch: because the app isn't notarized (no paid Apple Developer account), Gatekeeper will block it. **Right-click → Open**, then confirm. (Once only.)
    - Or run: `xattr -dr com.apple.quarantine /Applications/MACKey.app`
 4. Grant **Accessibility** permission (required for global hotkeys):
-   System Settings → Privacy & Security → Accessibility → enable MACKey.
+   System Settings → Privacy & Security → Accessibility → enable HotKey Hub.
 
 ## Usage
 
@@ -74,7 +74,7 @@ Built with Swift + SwiftUI + AppKit; global hotkeys via [HotKey](https://github.
 
 ## Support
 
-If MACKey helps you, consider supporting development — see the "☕ Support" item in the menu, or [Ko-fi](https://ko-fi.com/hunters1431) / [PayPal](https://paypal.me/hunters1431).
+If HotKey Hub helps you, consider supporting development — see the "☕ Support" item in the menu, or [Ko-fi](https://ko-fi.com/hunters1431) / [PayPal](https://paypal.me/hunters1431).
 
 ## License
 
